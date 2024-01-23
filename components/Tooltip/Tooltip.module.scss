@@ -1,0 +1,19 @@
+.tooltipWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  transition: 1s;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.3rem;
+  padding: 0.6rem 1rem;
+  background: var(--color-dark);
+  color: var(--color-text);
+  border-radius: 4px;
+  z-index: 100;
+}

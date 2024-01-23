@@ -1,0 +1,33 @@
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Creates a responsive grid
+  gap: 4rem; // Adjust the space between items
+  max-width: 50rem; // Adjust the max-width as needed
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(5px 9px 3px rgb(0 0 0 / 0.618));
+  transition: 0.16s;
+
+  &:hover,
+  &:active {
+    filter: drop-shadow(6px 10px 4px rgb(0 0 0 / 0.918));
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 48rem) {
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Creates a responsive grid
+    gap: 1.5rem; // Adjust the space between items
+  }
+}

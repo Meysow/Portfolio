@@ -1,0 +1,57 @@
+.container {
+  position: absolute;
+  // left: calc(5% - 100px);
+  left: calc(4% + 1.4rem);
+  bottom: 60%;
+  transform-origin: center left;
+  transform: rotate(90deg);
+
+  .button {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 30px;
+    background-color: rgba(var(--color-secondary-rgb), 0.3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    outline: none;
+    border: none;
+    // test
+    position: relative;
+    border-radius: 3rem;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    border: 1px solid var(--color-secondary);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -110%;
+      width: 150%;
+      height: 30px;
+      background-color: rgba(var(--color-secondary-rgb), 0.318);
+      transform: rotate(-40deg);
+      transition: left 2.3s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    &:hover:before {
+      left: 120%;
+    }
+  }
+  .button:hover {
+    color: rgba(var(--color-secondary-rgb), 0.9);
+    box-shadow: 3px 3px 3px 0px rgba(var(--color-dark-rgb), 0.6);
+    background-color: rgba(var(--color-highlight-rgb), 0.1);
+  }
+
+  .button:last-child {
+    margin-right: 0;
+  }
+
+  .button.active {
+    width: 60px;
+    cursor: auto;
+    background-color: rgba(var(--color-highlight-rgb), 0.1);
+  }
+}

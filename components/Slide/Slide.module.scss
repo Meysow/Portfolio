@@ -1,0 +1,52 @@
+@import '@/styles/app.scss';
+
+/********************** 
+TODO :
+Essayer de transformer le systeme de slide par un composant react a part 
+**********************/
+
+.sections {
+  height: 100vh;
+  width: 100%;
+  padding-top: 4rem;
+}
+
+.active {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+
+  .titleWrapper {
+    margin-left: 6%;
+
+    .title {
+      color: var(--color-text);
+      font-size: clamp(2.5rem, calc(1.2rem + 5vw), 7rem);
+    }
+
+    .icon {
+      color: var(--color-text);
+    }
+    .text {
+      color: var(--color-text);
+    }
+  }
+}
+
+.down {
+  top: 100%;
+  position: absolute;
+}
+
+.up {
+  top: -100%;
+  position: absolute;
+}
+
+.right {
+  color: var(--color-text);
+  align-self: center;
+  margin-left: auto;
+}

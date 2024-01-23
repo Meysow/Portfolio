@@ -1,0 +1,40 @@
+.wrapper {
+  padding: 1rem 0rem;
+  .button {
+    color: var(--color-highlight);
+    font-family: var(--font-alternates);
+    font-size: clamp(1.6rem, calc(1.2rem + 3vw), 2.8rem);
+    padding: 0.8rem 2.2rem;
+    background: none;
+    cursor: pointer;
+
+    position: relative;
+    border: 2px solid var(--color-highlight);
+    border-radius: 1.3rem;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -110%;
+      width: 150%;
+      height: 30px;
+      background-color: rgba(var(--color-secondary-rgb), 0.318);
+      transform: rotate(-40deg);
+      transition: left 2.3s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    &:hover:before {
+      left: 120%;
+    }
+  }
+
+  .button:hover,
+  .button:focus {
+    color: rgba(var(--color-secondary-rgb), 0.9);
+    border: 2px solid var(--color-secondary);
+    box-shadow: -5px 5px 5px 0px rgba(var(--color-dark-rgb), 0.6);
+    background-color: rgba(var(--color-highlight-rgb), 0.1);
+  }
+}

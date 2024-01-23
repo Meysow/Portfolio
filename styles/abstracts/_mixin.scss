@@ -1,0 +1,44 @@
+@mixin bg-gradient {
+  background: linear-gradient(
+    61.8deg,
+    rgba($color-dark, 1) 0%,
+    rgba($color-primary, 1) 33%,
+    rgba($color-secondary, 1) 100%
+  );
+}
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+    + 'Please make sure it is defined in `$grid-breakpoints` map.';
+  }
+}
+
+@mixin content-width {
+  width: min(92%, map_get($container-max-widths, xl));
+  // max-width: map_get($container-max-widths, xs);
+  padding: 2.8rem 1rem;
+
+  @include breakpoint('lg') {
+    width: min(88%, map_get($container-max-widths, xl));
+  }
+}
+
+@mixin card {
+  border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.8rem;
+  -o-border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}

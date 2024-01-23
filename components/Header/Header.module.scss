@@ -1,0 +1,22 @@
+@import '../../styles/app.scss';
+
+.header {
+  background-color: rgba(var(--color-dark-rgb), 0.318);
+  position: fixed;
+  width: 100%;
+  padding: $global-padding-sm;
+  z-index: 1000;
+  box-shadow: 1px 1px 12px rgba(var(--color-dark-rgb), 0.9);
+
+  .container {
+    color: var(--color-text);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.8rem;
+
+    .navBar {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

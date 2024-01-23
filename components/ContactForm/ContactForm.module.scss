@@ -1,0 +1,83 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem 2rem;
+  color: var(--color-text);
+}
+
+.input_data {
+  width: 100%;
+  position: relative;
+}
+
+.textarea {
+  height: 70px;
+}
+.input_data input {
+  min-height: 4.5rem;
+}
+.input_data input,
+.textarea textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--color-text);
+  border: none;
+  font-size: 1.6rem;
+  border-bottom: 2px solid rgba(var(--color-text-rgb), 0.5);
+  background: none;
+  outline: none;
+}
+
+.input_data input:focus ~ label,
+.input_data input:valid ~ label {
+  transform: translateY(-2.5rem);
+  font-size: 14px;
+  color: #3498db;
+}
+
+.textarea textarea:focus ~ label,
+.textarea textarea:valid ~ label {
+  transform: translateY(-3rem);
+  font-size: 14px;
+  color: #3498db;
+}
+
+.textarea textarea {
+  resize: none;
+  padding-top: 10px;
+}
+.input_data label {
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+.textarea label {
+  width: 100%;
+  bottom: 40px;
+}
+.input_data .underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+.input_data .underline:before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: #3498db;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input_data input:focus ~ .underline:before,
+.input_data input:valid ~ .underline:before,
+.textarea textarea:focus ~ .underline:before,
+.textarea textarea:valid ~ .underline:before {
+  transform: scale(1);
+}
