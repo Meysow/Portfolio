@@ -6,17 +6,17 @@ import style from './HomePage.module.scss';
 import Header from '@/components/Header';
 import PageSelector from '@/components/PageSelector';
 import ScrollDownArrow from '@/components/ScrollDownArrow';
-import Button from '@/components/Button';
-import SkillDisplay from '@/components/SkillDisplay';
 
 // IMAGE //
-import portrait from '@/public/assets/portrait final full circle v6.png';
-import amazona from '@/public/Amazona large.png';
 
 // import climb from '@/public/assets/chessClimb.png';
-import climb from '@/public/assets/indoor.png';
-import Image from 'next/image';
 import ContactForm from '@/components/ContactForm';
+import Slide from '@/components/Slide';
+import Hero from '@/components/SlidesContent/Hero';
+import Projects from '@/components/SlidesContent/Projects';
+import Skills from '@/components/SlidesContent/Skills';
+import { AboutMe } from '@/components/SlidesContent/AboutMe';
+import ContactMe from '@/components/SlidesContent/ContactMe';
 // import climb from '@/public/assets/archOne.png';
 // import climb from '@/public/assets/archTwo.png';
 
@@ -118,123 +118,40 @@ const HomePage = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <section
-          className={sectionClassNames(1)}
-          style={sectionClassStyle(1)}
+        <Slide
+          selectedSection={selectedSection}
+          sectionNumber={1}
         >
-          <div className={style.titleWrapper}>
-            <h1 className={style.title}>
-              Thibault
-              <br /> Dilman
-            </h1>
-            <span className={style.icon}>&gt;</span>
-            <span className={style.icon}>_</span>
-            <p className={style.text}>Front End Developper.</p>
-            <p className={style.textTwo}>+33 6 45 42 25 75</p>
-            <p className={style.textThree}>thibault.dilman@tuta.io</p>
+          <Hero />
+        </Slide>
 
-            <p className={style.portfolio}>Portfolio</p>
-          </div>
-          <div className={style.portrait}>
-            <Image
-              src={portrait}
-              alt='portait'
-              placeholder='blur'
-              sizes='(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw'
-            />
-          </div>
-        </section>
-
-        <section
-          className={sectionClassNames(2)}
-          style={sectionClassStyle(2)}
+        <Slide
+          selectedSection={selectedSection}
+          sectionNumber={2}
         >
-          <div className={style.titleWrapper}>
-            <h2 className={style.title}>
-              My
-              <br /> Projects
-            </h2>
-            <span className={style.icon}>&gt;</span>
-            <span className={style.icon}>_</span>
-            <p className={style.text}>From Amazona to Unique Digital Experiences: </p>
-            <p className={style.textTwo}>Discover My Projects.</p>
+          <Projects />
+        </Slide>
 
-            <Button className={style.buttonMargin}>Learn More</Button>
-          </div>
-          <div className={style.illustration}>
-            <Image
-              src={amazona}
-              alt='Illustration of Amazona Project'
-              placeholder='blur'
-              sizes='(max-width: 768px) 60vw, (max-width: 1200px) 55vw, 50vw'
-            />
-          </div>
-        </section>
-
-        <section
-          className={sectionClassNames(3)}
-          style={sectionClassStyle(3)}
+        <Slide
+          selectedSection={selectedSection}
+          sectionNumber={3}
         >
-          <div className={style.titleWrapper}>
-            <h2 className={style.title}>Skills</h2>
-            <span className={style.icon}>&gt;</span>
-            <span className={style.icon}>_</span>
-            <p className={style.text}>Crafting Digital Experiences </p>
-            <p className={style.textTwo}>with Expertise and Passion.</p>
+          <Skills />
+        </Slide>
 
-            <Button className={style.buttonMargin}>Download My C.V.</Button>
-          </div>
-          <div className={style.skills}>
-            <div className={style.skillsCard}>
-              <SkillDisplay />
-            </div>
-          </div>
-        </section>
-
-        <section
-          className={sectionClassNames(4)}
-          style={sectionClassStyle(4)}
+        <Slide
+          selectedSection={selectedSection}
+          sectionNumber={4}
         >
-          <div className={style.titleWrapper}>
-            <h2 className={style.title}>
-              About
-              <br /> Me
-            </h2>
-            <span className={style.icon}>&gt;</span>
-            <span className={style.icon}>_</span>
-            <p className={style.text}>Balancing Adventure and Strategy:</p>
-            <p className={style.textTwo}>A Passion for Climbing, Trekking, and Chess.</p>
-            <Button className={style.buttonMargin}>Discover Me</Button>
-          </div>
-          <div className={style.illustration}>
-            <Image
-              src={climb}
-              alt='Climbing Illustration'
-              placeholder='blur'
-              sizes='(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw'
-            />
-          </div>
-        </section>
+          <AboutMe />
+        </Slide>
 
-        <section
-          className={sectionClassNames(5)}
-          style={sectionClassStyle(5)}
+        <Slide
+          selectedSection={selectedSection}
+          sectionNumber={5}
         >
-          <div className={style.titleWrapper}>
-            <h2 className={style.title}>
-              Let&apos;s <br />
-              Connect
-            </h2>
-            <span className={style.icon}>&gt;</span>
-            <span className={style.icon}>_</span>
-            <p className={style.text}>I&apos;m Currently looking for new opportunities.</p>
-            <p className={style.textTwo}>Whether you have a question or just want to say hi,</p>
-            <p className={style.textThree}>I&apos;ll get back to you !</p>
-          </div>
-          <div className={style.contact}>
-            <ContactForm />
-          </div>
-        </section>
+          <ContactMe />
+        </Slide>
 
         {/* PAGE SELECTOR */}
 
