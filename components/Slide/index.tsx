@@ -1,25 +1,30 @@
+import React from 'react';
 import style from './Slide.module.scss';
 
-interface PropTypes {
+interface SlideProps {
   selectedSection: number;
+  sectionNumber: number;
   children: React.ReactNode;
 }
 
-const Slide = ({ selectedSection, children }: PropTypes) => {
-  const classNames = (sectionNumber: number) => {
-    if (sectionNumber === 1) {
-      return `${style.sections} ${selectedSection === 1 ? `${style.active}` : `${style.up}`}`;
-    }
-    return `${style.sections} ${
-      selectedSection === sectionNumber
-        ? `${style.active}`
-        : selectedSection < sectionNumber
-        ? `${style.down}`
-        : `${style.up}`
-    }`;
+const Slide: React.FC<SlideProps> = ({ selectedSection, sectionNumber, children }) => {
+  const isActive = selectedSection === sectionNumber;
+  const position = 100 * (sectionNumber - selectedSection);
+
+  const sectionStyle = {
+    top: `${position}vh`,
   };
 
-  return <section className={classNames(selectedSection)}>{children}</section>;
+  const sectionClass = isActive ? `${style.sections} ${style.active}` : style.sections;
+
+  return (
+    <section
+      className={sectionClass}
+      style={sectionStyle}
+    >
+      {children}
+    </section>
+  );
 };
 
 export default Slide;
