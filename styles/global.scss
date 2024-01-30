@@ -1,13 +1,14 @@
+@use "./abstracts/normalize.scss";
+// TODO: a garder ? =>
+// @use "@/styles/abstracts/variables.scss";
+
 @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
 
-@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,700;1,700&family=Fira+Sans:wght@300;400;500&family=Metrophobic&family=Montserrat+Alternates:ital,wght@1,600&family=PT+Serif&family=Roboto:wght@400;500;700&display=swap');
-
-@import './abstracts/variables.scss';
-@import './abstracts/normalize.scss';
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,700;1,700&family=Fira+Sans:wght@300;400;500&family=Metrophobic&family=Montserrat+Alternates:ital,wght@1,600&family=PT+Serif&family=Roboto:wght@400;500;700&display=swap");
 
 @font-face {
-  font-family: 'Foobar Pro';
-  src: url('/Fonts/foobar_pro/FoobarPro-Regular.ttf.woff') format('woff');
+  font-family: "Foobar Pro";
+  src: url("/Fonts/foobar_pro/FoobarPro-Regular.ttf.woff") format("woff");
 }
 // color test 6699cc cc9966
 
@@ -38,7 +39,8 @@
 
 // colors palette => Hex color codes: #d74a49, #183e4b, #1b4552, #8ba0a4 and #eaeaea. //
 :root {
-  --color-text: #ecf0f1;
+  // --color-text: #ecf0f1;
+  --color-text: #edeef0;
   --color-dark: #2c3e50;
   --color-primary: #2980b9;
   --color-secondary: #3498db;
@@ -48,10 +50,10 @@
   --color-primary-rgb: 41, 128, 185;
   --color-secondary-rgb: 52, 152, 219;
   --color-highlight-rgb: 231, 76, 60;
-  --font-fira: 'Metrophobic', sans-serif;
-  --font-foobar: 'Foobar Pro', 'Roboto', sans-serif;
-  --font-serif: 'PT Serif', serif;
-  --font-alternates: 'Montserrat Alternates', sans-serif;
+  --font-fira: "Metrophobic", sans-serif;
+  --font-foobar: "Foobar Pro", "Roboto", sans-serif;
+  --font-serif: "PT Serif", serif;
+  --font-alternates: "Montserrat Alternates", sans-serif;
 }
 
 // colors palette 2 ? => Hex color codes: #2C3E50, #E74C3C, #ECF0F1, #3498DB and #2980B9. //
@@ -68,7 +70,10 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: 'Lato', sans-serif;
+
+  // TO ADJUST
+  font-family: var(--font-fira);
+  color: var(--color-text);
 }
 
 body,
@@ -93,8 +98,8 @@ h4,
 h5,
 h6 {
   font-weight: bold;
-  font-family: 'Advent Pro', sans-serif;
-  letter-spacing: 0.05rem;
+  font-family: var(--font-foobar);
+  letter-spacing: 0.3rem;
   text-transform: uppercase;
   font-size: clamp(1.6rem, calc(1.2rem + 1vw), 3.6rem);
 }

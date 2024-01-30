@@ -1,10 +1,20 @@
-import style from './Hero.module.scss';
-import Image from 'next/image';
-import portrait from '@/public/assets/portrait final full circle v6.png';
+import portrait from "@/public/assets/portrait final full circle v6.png";
+import Image from "next/image";
+import style from "./Hero.module.scss";
 
-export default function Hero() {
+interface propTypes {
+  selectedSection: number;
+  sectionNumber: number;
+}
+
+const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
+  const containerStyle =
+    selectedSection === sectionNumber
+      ? `${style.container} ${style.active}`
+      : style.container;
+
   return (
-    <div className={style.container}>
+    <div className={containerStyle}>
       <div className={style.titleWrapper}>
         <h1 className={style.title}>
           Thibault
@@ -21,11 +31,13 @@ export default function Hero() {
       <div className={style.portrait}>
         <Image
           src={portrait}
-          alt='portait'
-          placeholder='blur'
-          sizes='(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw'
+          alt="portait"
+          placeholder="blur"
+          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
         />
       </div>
     </div>
   );
-}
+};
+
+export default Hero;

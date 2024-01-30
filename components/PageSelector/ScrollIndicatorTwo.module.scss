@@ -2,7 +2,7 @@
   position: absolute;
   // left: calc(5% - 100px);
   left: calc(4% + 1.4rem);
-  bottom: 60%;
+  bottom: 68%;
   transform-origin: center left;
   transform: rotate(90deg);
 
@@ -25,7 +25,7 @@
     border: 1px solid var(--color-secondary);
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: -110%;

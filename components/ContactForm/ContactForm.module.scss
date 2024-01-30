@@ -1,14 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding: 1rem 2rem;
+  gap: 2rem;
+  padding: 1.6rem 2rem 0.8rem;
   color: var(--color-text);
 }
 
 .input_data {
   width: 100%;
   position: relative;
+  margin-top: 0.6rem;
 }
 
 .textarea {
@@ -25,7 +26,7 @@
   color: var(--color-text);
   border: none;
   font-size: 1.6rem;
-  border-bottom: 2px solid rgba(var(--color-text-rgb), 0.5);
+  border-bottom: 2px solid rgba(var(--color-text-rgb), 0.8);
   background: none;
   outline: none;
 }
@@ -33,16 +34,16 @@
 .input_data input:focus ~ label,
 .input_data input:valid ~ label {
   transform: translateY(-2.5rem);
-  font-size: 1.4rem;
-  color: var(--color-highlight);
+  font-size: 1.3rem;
+  color: var(--color-secondary);
   text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
 }
 
 .textarea textarea:focus ~ label,
 .textarea textarea:valid ~ label {
   transform: translateY(-3rem);
-  font-size: 1.4rem;
-  color: var(--color-highlight);
+  font-size: 1.2rem;
+  color: var(--color-secondary);
   text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
 }
 
@@ -54,7 +55,7 @@
   position: absolute;
   pointer-events: none;
   bottom: 10px;
-  font-size: 16px;
+  font-size: 1.4rem;
   transition: all 0.3s ease;
 }
 .textarea label {
@@ -69,10 +70,10 @@
 }
 .input_data .underline:before {
   position: absolute;
-  content: '';
+  content: "";
   height: 2px;
   width: 100%;
-  background: var(--color-text);
+  background: var(--color-secondary);
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.3s ease;
@@ -82,4 +83,10 @@
 .textarea textarea:focus ~ .underline:before,
 .textarea textarea:valid ~ .underline:before {
   transform: scale(1);
+}
+
+.error {
+  position: absolute;
+  font-size: 1.1rem;
+  color: var(--color-highlight);
 }

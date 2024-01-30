@@ -1,0 +1,68 @@
+@use "../../styles/app.scss";
+
+.container {
+  @include app.sectionContainer;
+
+  .titleWrapper {
+    align-self: center;
+    margin-top: -2.8rem;
+
+    .portfolio {
+      font-size: clamp(2.5rem, calc(1.5rem + 3vw), 7rem);
+      color: var(--color-highlight);
+      font-family: var(--font-alternates);
+      margin-top: 2rem;
+      text-shadow: none;
+    }
+  }
+
+  .portrait {
+    --opacity: 0.83;
+    opacity: var(--opacity);
+
+    img {
+      transform: scale(0.318);
+      transition: 0.6s;
+      border: solid 0px transparent;
+      border-radius: 50%;
+      box-shadow: -1px 14px 47px 10px rgba(0, 0, 0, 0.62);
+    }
+  }
+
+  &.active {
+    .title {
+      animation: slide-in-text-one 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+
+    .icon {
+      animation: fadeInSpan 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .text {
+      animation: slide-in-text-one 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .textTwo {
+      animation: slide-in-text-one 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .textThree {
+      animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .portfolio,
+    button {
+      --opacity: 1;
+      animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .portrait {
+      img {
+        animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+
+        transform: scale(1);
+      }
+    }
+  }
+}

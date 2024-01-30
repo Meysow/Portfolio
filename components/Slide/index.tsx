@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './Slide.module.scss';
+import React from "react";
+import style from "./Slide.module.scss";
 
 interface SlideProps {
   selectedSection: number;
@@ -7,21 +7,19 @@ interface SlideProps {
   children: React.ReactNode;
 }
 
-const Slide: React.FC<SlideProps> = ({ selectedSection, sectionNumber, children }) => {
-  const isActive = selectedSection === sectionNumber;
+const Slide: React.FC<SlideProps> = ({
+  selectedSection,
+  sectionNumber,
+  children,
+}) => {
   const position = 100 * (sectionNumber - selectedSection);
 
   const sectionStyle = {
     top: `${position}vh`,
   };
 
-  const sectionClass = isActive ? `${style.sections} ${style.active}` : style.sections;
-
   return (
-    <section
-      className={sectionClass}
-      style={sectionStyle}
-    >
+    <section className={style.sections} style={sectionStyle}>
       {children}
     </section>
   );

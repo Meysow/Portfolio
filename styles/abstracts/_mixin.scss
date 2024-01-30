@@ -1,3 +1,39 @@
+@use "./variables";
+
+@mixin sectionContainer {
+  max-width: 75vw;
+  margin-left: 1.6rem;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .titleWrapper {
+    align-self: center;
+    z-index: 2;
+    overflow: hidden;
+
+    .title {
+      font-weight: 600;
+      //TODO: A ajuster
+      font-size: variables.$title-font-size;
+      text-shadow: 0 4px 4px rgba(2, 11, 22, 0.8);
+    }
+
+    .text,
+    .textTwo,
+    .textThree,
+    .icon {
+      // TODO: a ajuster
+      color: rgba(var(--color-text-rgb), 0.83);
+      // color: #b0b4ba;
+      font-size: variables.$icon-font-size;
+      margin-top: 0.3rem;
+      text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
+    }
+  }
+}
+
+////// TODO: Faire le tri //////
+
 @mixin bg-gradient {
   background: linear-gradient(
     61.8deg,
@@ -23,22 +59,7 @@
   // max-width: map_get($container-max-widths, xs);
   padding: 2.8rem 1rem;
 
-  @include breakpoint('lg') {
+  @include breakpoint("lg") {
     width: min(88%, map_get($container-max-widths, xl));
   }
-}
-
-@mixin card {
-  border-radius: 0.8rem;
-  -webkit-border-radius: 0.8rem;
-  -moz-border-radius: 0.8rem;
-  -ms-border-radius: 0.8rem;
-  -o-border-radius: 0.8rem;
-  overflow: hidden;
-  box-shadow: $box-shadow;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
 }

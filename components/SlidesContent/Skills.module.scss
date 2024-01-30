@@ -1,0 +1,57 @@
+@use "../../styles/app.scss";
+
+.container {
+  @include app.sectionContainer;
+
+  .titleWrapper {
+    margin-top: 2rem;
+  }
+
+  .skills {
+    .skillsCard {
+      position: relative;
+      transform: scale(0.318) translate(20rem, -10rem);
+      box-shadow: -1px 14px 47px 10px rgba(0, 0, 0, 0.62);
+      padding: 2rem 1.5rem;
+      border-radius: 0.6rem;
+      backdrop-filter: blur(4px);
+      transition: 0.9s;
+    }
+  }
+
+  &.active {
+    .title {
+      animation: slide-in-text-one 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+
+    .icon {
+      animation: fadeInSpan 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .text {
+      animation: slide-in-text-one 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .textTwo {
+      animation: slide-in-text-one 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+    .textThree {
+      animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+
+    button {
+      --opacity: 1;
+      animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation-fill-mode: forwards;
+    }
+
+    .skills {
+      .skillsCard {
+        transform: scale(1);
+      }
+    }
+  }
+}

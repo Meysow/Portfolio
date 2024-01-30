@@ -1,10 +1,20 @@
-import Button from '../Button';
-import SkillDisplay from '@/components/SkillDisplay';
-import style from './Skills.module.scss';
+import SkillDisplay from "@/components/SkillDisplay";
+import Button from "../Button";
+import style from "./Skills.module.scss";
 
-export default function Skills() {
+interface propTypes {
+  selectedSection: number;
+  sectionNumber: number;
+}
+
+const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
+  const containerStyle =
+    selectedSection === sectionNumber
+      ? `${style.container} ${style.active}`
+      : style.container;
+
   return (
-    <div className={style.container}>
+    <div className={containerStyle}>
       <div className={style.titleWrapper}>
         <h2 className={style.title}>Skills</h2>
         <span className={style.icon}>&gt;</span>
@@ -21,4 +31,6 @@ export default function Skills() {
       </div>
     </div>
   );
-}
+};
+
+export default Skills;

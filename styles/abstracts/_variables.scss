@@ -12,3 +12,51 @@ $global-padding-lg: 3rem;
 // FONTS // *TODO*
 
 // FONTS SIZE // *TODO*
+
+$title-font-size: clamp(2.5rem, calc(1.5rem + 3vw), 7rem);
+$icon-font-size: 1.4rem;
+
+// KEYFRAMES //
+
+@keyframes slide-in-text-one {
+  0% {
+    transform: translateX(-110%);
+    opacity: 0.318;
+  }
+  40% {
+    transform: translateX(-110%);
+    opacity: 0.618;
+  }
+
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+    overflow: visible;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: var(--opacity);
+  }
+}
+
+@keyframes fadeInSpan {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 1;
+  }
+}

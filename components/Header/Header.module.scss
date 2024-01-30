@@ -1,10 +1,10 @@
-@import '../../styles/app.scss';
+@use "../../styles/app.scss";
 
 .header {
   background-color: rgba(var(--color-dark-rgb), 0.318);
   position: fixed;
   width: 100%;
-  padding: $global-padding-sm;
+  padding: app.$global-padding-sm;
   z-index: 1000;
   box-shadow: 1px 1px 12px rgba(var(--color-dark-rgb), 0.9);
 
