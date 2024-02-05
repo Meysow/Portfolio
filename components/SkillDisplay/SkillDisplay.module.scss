@@ -1,8 +1,18 @@
+@use "../../styles/app.scss";
+
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // Creates a responsive grid
-  gap: 4rem; // Adjust the space between items
-  max-width: 50rem; // Adjust the max-width as needed
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 50rem;
+
+  @include app.smallScreen() {
+    gap: 2.4rem;
+  }
+
+  @include app.mediumScreen() {
+    gap: 3.6rem;
+  }
 }
 
 .skillItem {
@@ -21,13 +31,5 @@
   & img {
     width: 100%;
     height: auto;
-  }
-}
-
-@media (max-width: 48rem) {
-  .skillsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); // Creates a responsive grid
-    gap: 1.5rem; // Adjust the space between items
   }
 }

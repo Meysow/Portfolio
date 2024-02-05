@@ -1,5 +1,5 @@
-import { memo, Dispatch, SetStateAction } from 'react';
-import styles from './ScrollIndicatorTwo.module.scss';
+import { Dispatch, SetStateAction, memo } from "react";
+import styles from "./PageSelector.module.scss";
 
 interface PropTypes {
   numberOfSections: number;
@@ -7,13 +7,19 @@ interface PropTypes {
   setSelectedSection: Dispatch<SetStateAction<number>>;
 }
 
-const PageSelector = ({ numberOfSections, selectedSection, setSelectedSection }: PropTypes) => {
+const PageSelector = ({
+  numberOfSections,
+  selectedSection,
+  setSelectedSection,
+}: PropTypes) => {
   const handleSectionChange = (sectionClicked: number) => {
     setSelectedSection(sectionClicked);
   };
 
   const isActive = (sectionNumber: number) => {
-    return `${styles.button} ${sectionNumber === selectedSection ? styles.active : ''}`;
+    return `${styles.button} ${
+      sectionNumber === selectedSection ? styles.active : ""
+    }`;
   };
 
   const getChangeButtons = () => {

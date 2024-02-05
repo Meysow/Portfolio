@@ -42,7 +42,7 @@ const ContactForm: React.FC = () => {
       <div className={style.input_data}>
         <input type="text" {...register("name", { required: true })} required />
         <div className={style.underline} />
-        <label htmlFor="name">Name</label>
+        <label>Name</label>
         {errors.name && (
           <span className={style.error}>This field is required</span>
         )}
@@ -64,7 +64,7 @@ const ContactForm: React.FC = () => {
       <div className={`${style.input_data} ${style.textarea}`}>
         <textarea {...register("message", { required: true })} required />
         <div className={style.underline} />
-        <label htmlFor="message">Your Message</label>
+        <label>Your Message</label>
         {errors.message && <span className={style.error}>error</span>}
       </div>
 

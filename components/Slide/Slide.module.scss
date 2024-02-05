@@ -15,6 +15,7 @@ Essayer de transformer le systeme de slide par un composant react a part
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 // TODO: verifier si on garde ca =>
@@ -27,6 +28,7 @@ Essayer de transformer le systeme de slide par un composant react a part
 .portrait,
 .illustration,
 .skills {
+  --opacity: 0.99;
   animation: fadeIn 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
   img,
   .skillsCard {

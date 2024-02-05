@@ -2,17 +2,17 @@
   position: absolute;
   // left: calc(5% - 100px);
   left: calc(4% + 1.4rem);
-  bottom: 68%;
+  bottom: calc(50% + 11.3rem);
   transform-origin: center left;
   transform: rotate(90deg);
 
   .button {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     float: left;
     margin-right: 30px;
     background-color: rgba(var(--color-secondary-rgb), 0.3);
-    border-radius: 20px;
+    border-radius: 18px;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     outline: none;

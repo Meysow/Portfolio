@@ -1,34 +1,116 @@
 @use "./variables";
 
+//*********** Slide Container ***************//
 @mixin sectionContainer {
   max-width: 75vw;
   margin-left: 1.6rem;
   display: flex;
   flex-direction: column-reverse;
 
+  @include largeScreen() {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3.6rem;
+    width: 75vw;
+  }
+
   .titleWrapper {
-    align-self: center;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
+
+    @include largeScreen() {
+      flex-basis: 55%;
+    }
 
     .title {
       font-weight: 600;
       //TODO: A ajuster
       font-size: variables.$title-font-size;
       text-shadow: 0 4px 4px rgba(2, 11, 22, 0.8);
+
+      margin-bottom: 0.4rem;
+      @include mediumScreen() {
+        margin-bottom: 0.6rem;
+      }
     }
 
     .text,
     .textTwo,
     .textThree,
     .icon {
-      // TODO: a ajuster
       color: rgba(var(--color-text-rgb), 0.83);
-      // color: #b0b4ba;
+      // TODO: a ajuster
       font-size: variables.$icon-font-size;
-      margin-top: 0.3rem;
       text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
+
+      margin-bottom: 0.2rem;
+      @include mediumScreen() {
+        margin-bottom: 0.4rem;
+      }
     }
+  }
+}
+
+//*********** Style when a slide becomes the ACTIVE One ***************//
+
+@mixin activeStyle {
+  .title {
+    animation: slide-in-text-one 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .icon {
+    animation: fadeInSpan 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+  .text {
+    animation: slide-in-text-one 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+  .textTwo {
+    animation: slide-in-text-one 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+  .textThree {
+    animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+
+  button {
+    --opacity: 1;
+    animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+}
+
+//*********** MEDIA QUERIES ***************//
+
+// 600px
+@mixin smallScreen() {
+  @media (min-width: 37.5rem) {
+    @content;
+  }
+}
+
+// 900px
+@mixin mediumScreen() {
+  @media (min-width: 56.25rem) {
+    @content;
+  }
+}
+
+// 1200px
+@mixin largeScreen() {
+  @media (min-width: 75em) {
+    @content;
+  }
+}
+
+// 1800px
+@mixin extraLargeScreen() {
+  @media (min-width: 112.5em) {
+    @content;
   }
 }
 

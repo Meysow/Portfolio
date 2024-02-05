@@ -1,9 +1,21 @@
+@use "../../styles/app.scss";
+
 .form {
   display: flex;
   flex-direction: column;
+  color: var(--color-text);
   gap: 2rem;
   padding: 1.6rem 2rem 0.8rem;
-  color: var(--color-text);
+
+  @include app.smallScreen() {
+    gap: 2.4rem;
+    padding: 1.8rem 2.2rem 1.1rem;
+  }
+
+  @include app.mediumScreen() {
+    gap: 2.8rem;
+    padding: 2.2rem 2.6rem 1.5rem;
+  }
 }
 
 .input_data {
@@ -42,7 +54,7 @@
 .textarea textarea:focus ~ label,
 .textarea textarea:valid ~ label {
   transform: translateY(-3rem);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--color-secondary);
   text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
 }
@@ -54,13 +66,14 @@
 .input_data label {
   position: absolute;
   pointer-events: none;
-  bottom: 10px;
+  bottom: 1rem;
   font-size: 1.4rem;
   transition: all 0.3s ease;
 }
 .textarea label {
+  font-size: 1.4rem;
   width: 100%;
-  bottom: 40px;
+  bottom: 3rem;
 }
 .input_data .underline {
   position: absolute;

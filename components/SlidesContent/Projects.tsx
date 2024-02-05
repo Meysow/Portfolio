@@ -23,10 +23,9 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         </h2>
         <span className={style.icon}>&gt;</span>
         <span className={style.icon}>_</span>
-        <p className={style.text}>
-          From Amazona to Unique Digital Experiences:{" "}
-        </p>
-        <p className={style.textTwo}>Discover My Projects.</p>
+        <p className={style.text}>From Amazona to Unique Digital </p>
+        <p className={style.textTwo}>Experiences: </p>
+        <p className={style.textThree}>Discover My Projects.</p>
 
         <Button className={style.buttonMargin}>Learn More</Button>
       </div>
@@ -35,7 +34,7 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           src={amazona}
           alt="Illustration of Amazona Project"
           placeholder="blur"
-          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 55vw, 50vw"
+          sizes="(max-width: 600px) 75vw, (max-width: 1200px) 50vw, 40vw"
         />
       </div>
     </div>

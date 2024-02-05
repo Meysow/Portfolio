@@ -17,10 +17,7 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
   return (
     <div className={containerStyle}>
       <div className={style.titleWrapper}>
-        <h2 className={style.title}>
-          About
-          <br /> Me
-        </h2>
+        <h2 className={style.title}>About Me</h2>
         <span className={style.icon}>&gt;</span>
         <span className={style.icon}>_</span>
         <p className={style.text}>Balancing Adventure and Strategy:</p>

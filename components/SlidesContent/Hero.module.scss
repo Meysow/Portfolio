@@ -5,7 +5,19 @@
 
   .titleWrapper {
     align-self: center;
-    margin-top: -2.8rem;
+    margin-top: -3.2rem;
+
+    @include app.smallScreen() {
+      margin-top: -4.2rem;
+    }
+
+    @include app.mediumScreen() {
+      margin-top: -5.4rem;
+    }
+
+    @include app.largeScreen() {
+      margin-top: 0;
+    }
 
     .portfolio {
       font-size: clamp(2.5rem, calc(1.5rem + 3vw), 7rem);
@@ -21,46 +33,31 @@
     opacity: var(--opacity);
 
     img {
+      max-height: 60vh;
+      width: auto;
       transform: scale(0.318);
       transition: 0.6s;
       border: solid 0px transparent;
       border-radius: 50%;
-      box-shadow: -1px 14px 47px 10px rgba(0, 0, 0, 0.62);
+      box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
+
+      @include app.largeScreen() {
+        max-height: 75vh;
+      }
     }
   }
 
   &.active {
-    .title {
-      animation: slide-in-text-one 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
-    }
-
-    .icon {
-      animation: fadeInSpan 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
-    }
-    .text {
-      animation: slide-in-text-one 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
-    }
-    .textTwo {
-      animation: slide-in-text-one 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
-    }
-    .textThree {
-      animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
-    }
-    .portfolio,
-    button {
-      --opacity: 1;
+    @include app.activeStyle;
+    .portfolio {
+      --opacity: 0.99;
       animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
       animation-fill-mode: forwards;
     }
     .portrait {
       img {
+        --opacity: 0.99;
         animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
-
         transform: scale(1);
       }
     }
