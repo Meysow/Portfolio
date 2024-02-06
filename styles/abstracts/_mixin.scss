@@ -29,7 +29,7 @@
       font-weight: 600;
       //TODO: A ajuster
       font-size: variables.$title-font-size;
-      text-shadow: 0 4px 4px rgba(2, 11, 22, 0.8);
+      text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
 
       margin-bottom: 0.4rem;
       @include mediumScreen() {
@@ -44,7 +44,7 @@
       color: rgba(var(--color-text-rgb), 0.83);
       // TODO: a ajuster
       font-size: variables.$icon-font-size;
-      text-shadow: 0 2px 2px rgba(2, 11, 22, 0.8);
+      text-shadow: 0 4px 4px rgba(2, 11, 22, 0.618);
 
       margin-bottom: 0.2rem;
       @include mediumScreen() {

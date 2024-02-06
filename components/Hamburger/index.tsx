@@ -31,19 +31,39 @@ const Hamburger = () => {
           <span></span>
           <span></span>
         </button>
-        <Link className={styles.link} href="/">
+        <Link
+          className={styles.link}
+          href="/projects"
+          onClick={() => setActive((prev) => !prev)}
+        >
+          My Projects
+        </Link>
+        <Link
+          className={styles.link}
+          href="/"
+          onClick={() => setActive((prev) => !prev)}
+        >
           Link 1
         </Link>
-        <Link className={styles.link} href="/">
+        <Link
+          className={styles.link}
+          href="/"
+          onClick={() => setActive((prev) => !prev)}
+        >
           Link 1
         </Link>
-        <Link className={styles.link} href="/">
+        <Link
+          className={styles.link}
+          href="/"
+          onClick={() => setActive((prev) => !prev)}
+        >
           Link 1
         </Link>
-        <Link className={styles.link} href="/">
-          Link 1
-        </Link>
-        <Link className={styles.link} href="/">
+        <Link
+          className={styles.link}
+          href="/"
+          onClick={() => setActive((prev) => !prev)}
+        >
           Link 1
         </Link>
       </div>
