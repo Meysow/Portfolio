@@ -3,7 +3,6 @@
 import { useCallback, useRef, useState } from "react";
 import style from "./HomePage.module.scss";
 
-import Header from "@/components/Header";
 import PageSelector from "@/components/PageSelector";
 import ScrollDownArrow from "@/components/ScrollDownArrow";
 
@@ -101,7 +100,6 @@ const HomePage = () => {
 
   return (
     <div className={style.layout}>
-      <Header />
       <div
         className={style.main}
         onWheel={handleOnMouseScroll}

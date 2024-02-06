@@ -27,14 +27,16 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.textTwo}>Experiences: </p>
         <p className={style.textThree}>Discover My Projects.</p>
 
-        <Button className={style.buttonMargin}>Learn More</Button>
+        <Button className={style.buttonMargin} href="/projects">
+          Learn More
+        </Button>
       </div>
       <div className={style.illustration}>
         <Image
           src={amazona}
           alt="Illustration of Amazona Project"
           placeholder="blur"
-          sizes="(max-width: 600px) 50vw,(max-width: 900px) 45vw, (max-width: 1200px) 40vw, 30vw"
+          sizes="(max-width: 600px) 50vw,(max-width: 900px) 45vw, (max-width: 1200px) 40vw, 37vw"
         />
       </div>
     </div>

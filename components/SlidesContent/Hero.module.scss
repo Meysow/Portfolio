@@ -22,9 +22,9 @@
     .portfolio {
       font-size: clamp(2.5rem, calc(1.5rem + 3vw), 7rem);
       color: var(--color-highlight);
-      font-family: var(--font-alternates);
       margin-top: 2rem;
       text-shadow: none;
+      font-family: var(--font-button), monospace;
     }
   }
 

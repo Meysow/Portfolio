@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
-import styles from './ScrollDownArrow.module.scss';
+import styles from "./ScrollDownArrow.module.scss";
 
 interface PropTypes {
   setSelectedSection: Dispatch<SetStateAction<number>>;
@@ -11,10 +11,7 @@ const ScrollDownArrow = ({ setSelectedSection }: PropTypes) => {
     setSelectedSection((prev) => prev + 1);
   };
   return (
-    <div
-      className={styles.link}
-      onClick={() => handleClick()}
-    >
+    <div className={styles.link} onClick={() => handleClick()}>
       <span className={styles.linkArrow}>
         <span></span>
         <span></span>

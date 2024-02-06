@@ -9,6 +9,7 @@
   cursor: pointer;
   --opacity: 0.99;
   animation: fadeIn 1.5s cubic-bezier(0.43, 0.18, 0.45, 1);
+  font-family: var(--font-button), monospace;
 
   .linkArrow {
     display: flex;
@@ -67,7 +68,6 @@
 
   .linkText {
     color: rgba(var(--color-text-rgb), 0.7);
-    font-family: var(--font-alternates);
     font-size: 10px;
     text-transform: uppercase;
   }
