@@ -6,6 +6,7 @@
   margin-left: 1.6rem;
   display: flex;
   flex-direction: column-reverse;
+  margin-top: 1.6rem;
 
   @include largeScreen() {
     flex-direction: row;
@@ -13,6 +14,7 @@
     justify-content: space-evenly;
     gap: 3.6rem;
     width: 75vw;
+    margin-top: 0;
   }
 
   .titleWrapper {

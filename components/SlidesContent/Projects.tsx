@@ -34,7 +34,7 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           src={amazona}
           alt="Illustration of Amazona Project"
           placeholder="blur"
-          sizes="(max-width: 600px) 75vw, (max-width: 1200px) 50vw, 40vw"
+          sizes="(max-width: 600px) 50vw,(max-width: 900px) 45vw, (max-width: 1200px) 40vw, 30vw"
         />
       </div>
     </div>

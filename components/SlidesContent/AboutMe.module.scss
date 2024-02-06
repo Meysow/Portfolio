@@ -18,8 +18,8 @@
   }
 
   .illustration {
-    padding-top: 2rem;
     transition: 0.9s;
+    padding-top: 2.4rem;
 
     @include app.smallScreen() {
       height: 45vh;
@@ -30,6 +30,8 @@
     }
 
     @include app.largeScreen() {
+      padding-top: 0;
+
       height: unset;
       flex-basis: 37%;
       img {

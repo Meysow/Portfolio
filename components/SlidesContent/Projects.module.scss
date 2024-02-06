@@ -2,7 +2,11 @@
 
 .container {
   @include app.sectionContainer;
-  margin-top: 4rem;
+
+  margin-top: 2rem;
+  @include app.largeScreen() {
+    margin-top: 0;
+  }
 
   .titleWrapper {
     margin-top: -2rem;
@@ -22,11 +26,14 @@
     --opacity: 0.99;
     opacity: var(--opacity);
     transition: 0.9s;
-    height: 50vh;
+    max-height: 53vh;
+    display: flex;
+    justify-content: center;
 
     img {
-      height: 100%;
-      width: auto;
+      max-height: 100%;
+      height: auto;
+      width: 100%;
       transform: scale(0.318) translate(20rem, -10rem);
       box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
       border-radius: 0.6rem;
@@ -34,8 +41,7 @@
     }
 
     @include app.smallScreen() {
-      height: 60vh;
-
+      height: 56vh;
       img {
         height: 100%;
         width: auto;
@@ -43,10 +49,11 @@
     }
 
     @include app.largeScreen() {
+      height: 67vh;
       flex-basis: 37%;
       img {
-        max-height: unset;
-        width: auto;
+        max-height: 100%;
+        height: auto;
       }
     }
   }

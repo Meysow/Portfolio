@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import styles from './Hamburger.module.scss';
-import Link from 'next/link';
+import Link from "next/link";
+import { useState } from "react";
+import styles from "./Hamburger.module.scss";
 
 const Hamburger = () => {
   const [active, setActive] = useState<boolean>(false);
   const isActive = active ? styles.active : styles.notActive;
+
+  // TODO: animer la sortie de la modale
 
   return (
     <>
@@ -27,34 +29,19 @@ const Hamburger = () => {
           <span></span>
           <span></span>
         </button>
-        <Link
-          className={styles.link}
-          href='/'
-        >
+        <Link className={styles.link} href="/">
           Link 1
         </Link>
-        <Link
-          className={styles.link}
-          href='/'
-        >
+        <Link className={styles.link} href="/">
           Link 1
         </Link>
-        <Link
-          className={styles.link}
-          href='/'
-        >
+        <Link className={styles.link} href="/">
           Link 1
         </Link>
-        <Link
-          className={styles.link}
-          href='/'
-        >
+        <Link className={styles.link} href="/">
           Link 1
         </Link>
-        <Link
-          className={styles.link}
-          href='/'
-        >
+        <Link className={styles.link} href="/">
           Link 1
         </Link>
       </div>

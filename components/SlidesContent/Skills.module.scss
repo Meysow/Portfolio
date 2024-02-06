@@ -17,7 +17,9 @@
   }
 
   .skills {
+    padding-top: 2.4rem;
     @include app.largeScreen() {
+      padding-top: 0;
       flex-basis: 37%;
     }
     display: flex;
