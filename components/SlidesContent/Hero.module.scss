@@ -35,11 +35,11 @@
     img {
       max-height: 60vh;
       width: auto;
-      transform: scale(0.318);
-      transition: 0.6s;
+      transform: app.$image-slide-in;
       border: solid 0px transparent;
       border-radius: 50%;
       box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
+      transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
 
       @include app.largeScreen() {
         max-height: 75vh;
@@ -51,13 +51,12 @@
     @include app.activeStyle;
     .portfolio {
       --opacity: 0.99;
-      animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
       animation-fill-mode: forwards;
     }
     .portrait {
       img {
         --opacity: 0.99;
-        animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
         transform: scale(1);
       }
     }

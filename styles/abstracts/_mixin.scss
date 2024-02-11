@@ -11,7 +11,7 @@
   @include largeScreen() {
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     gap: 3.6rem;
     width: 75vw;
     margin-top: 0;
@@ -26,7 +26,7 @@
     }
 
     .title {
-      font-weight: 600;
+      font-weight: 500;
       //TODO: A ajuster
       font-size: variables.$title-font-size;
       text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
@@ -81,7 +81,7 @@
 
   button {
     --opacity: 1;
-    animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation: fadeIn 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
     animation-fill-mode: forwards;
   }
 }
@@ -114,6 +114,26 @@
   @media (min-width: 112.5em) {
     @content;
   }
+}
+
+// BACKGROUND with grid like squares //
+
+@mixin bg-grid {
+  content: "";
+  position: fixed;
+  height: 109vh;
+  width: 109vw;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-image: linear-gradient(currentcolor 1px, transparent 1px),
+    linear-gradient(to right, currentcolor 1px, transparent 1px);
+  background-size: 94px 90px;
+  color: rgba(113, 113, 113, 0.09);
+  background-color: transparent;
+  transition: all 0.5s linear 0s;
+  z-index: -1;
 }
 
 ////// TODO: Faire le tri //////

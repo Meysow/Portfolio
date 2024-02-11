@@ -1,3 +1,100 @@
+@use "../../../../styles/app.scss";
+
 .container {
-  color: red;
+  display: flex;
+  width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+
+  // TODO: Creer un mixin pour gerer les tailles max des pages annexes
+  @include app.smallScreen() {
+    max-width: 58rem;
+  }
+  @include app.mediumScreen() {
+    max-width: 70rem;
+  }
+
+  .section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+
+      @include app.mediumScreen() {
+        flex: 0 0 83.333333%;
+      }
+
+      .title {
+        font-weight: 700;
+        //TODO: A ajuster
+        font-size: app.$title-font-size;
+        text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
+        margin: 9rem 0 3rem;
+      }
+
+      .filter {
+        margin-bottom: 1.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .projectsContainer {
+        .project {
+          display: flex;
+          flex-direction: column;
+          gap: 1.4rem;
+          width: 100%;
+          margin-bottom: 4.4rem;
+
+          .figure {
+            border-radius: 0.6rem;
+            overflow: hidden;
+          }
+          .description {
+            .name {
+              font-size: 2.4rem;
+              // font-size: clamp(2.4rem, calc(1.3rem + 1vw), 5.2rem);
+              margin-bottom: 1.4rem;
+            }
+            .legend {
+              font-size: 1.8rem;
+              // font-size: app.$icon-font-size;
+              margin-bottom: 0.6rem;
+            }
+            .stack {
+              font-size: 1.4rem;
+              // font-size: clamp(1.2rem, calc(0.6rem + 0.8vw), 2.4rem);
+              color: rgba(var(--color-text-rgb), 0.83);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .backgroundTitle {
+    font-weight: 600;
+    font-size: 27vmin;
+    font-family: Abril FatFace;
+    bottom: 0px;
+    opacity: 0.218;
+    left: -4rem;
+    position: fixed;
+    color: var(--color-dark);
+    white-space: pre;
+    letter-spacing: -0.6rem;
+    writing-mode: vertical-rl;
+    z-index: -1;
+  }
 }

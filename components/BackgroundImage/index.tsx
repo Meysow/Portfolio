@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import background from '@/public/assets/backgroundFour.png';
-import style from './BackgroundImage.module.scss';
+import background from "@/public/assets/backgroundFour.png";
+import Image from "next/image";
+import style from "./BackgroundImage.module.scss";
 
 const BackgroundImage = () => {
   return (
@@ -8,12 +8,12 @@ const BackgroundImage = () => {
       <div className={style.bg}>
         <Image
           src={background}
-          alt='background image'
+          alt="background image"
           fill
           priority={true}
-          placeholder='blur'
-          sizes='100vw'
-          quality={66}
+          placeholder="blur"
+          sizes="100vw"
+          quality={75}
         />
       </div>
     </div>

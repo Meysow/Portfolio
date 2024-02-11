@@ -1,0 +1,16 @@
+@use "../../../styles/app.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  &::after {
+    @include app.bg-grid;
+  }
+
+  .main {
+    margin-top: 6rem;
+  }
+}

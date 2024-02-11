@@ -1,12 +1,24 @@
 @use "../../styles/app.scss";
 
 .header {
-  background-color: rgba(var(--color-dark-rgb), 0.318);
   position: fixed;
   width: 100%;
-  padding: app.$global-padding-sm;
   z-index: 1000;
-  box-shadow: 1px 1px 12px rgba(var(--color-dark-rgb), 0.9);
+
+  // TODO : A ajuster les padding, voir creer une function
+  padding: app.$global-padding-sm;
+
+  @include app.smallScreen() {
+    padding: app.$global-padding-md;
+  }
+
+  @include app.mediumScreen() {
+    padding: app.$global-padding-lg;
+  }
+
+  // TODO: savoir si on le conserve ou non
+  // background-color: rgba(var(--color-dark-rgb), 0.318);
+  // box-shadow: 1px 1px 12px rgba(var(--color-dark-rgb), 0.9);
 
   .container {
     color: var(--color-text);
@@ -17,6 +29,12 @@
     .navBar {
       display: flex;
       gap: 1rem;
+      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.8));
+    }
+
+    .name {
+      margin-right: 1.6rem;
+      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.8));
     }
   }
 }

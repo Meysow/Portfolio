@@ -1,9 +1,11 @@
-import BackgroundImage from "@/components/BackgroundImage";
 import Header from "@/components/Header";
 import "@/styles/global.scss";
 import type { Metadata } from "next";
-import { Montserrat_Alternates, Open_Sans } from "next/font/google";
-import localFont from "next/font/local";
+import {
+  Montserrat_Alternates,
+  Roboto_Mono,
+  Space_Grotesk,
+} from "next/font/google";
 
 const AlternatesItalic = Montserrat_Alternates({
   subsets: ["latin"],
@@ -12,17 +14,24 @@ const AlternatesItalic = Montserrat_Alternates({
   variable: "--font-alternates",
 });
 
-const openSans = Open_Sans({
+const openSans = Roboto_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-openSans",
 });
 
-const foobarPro = localFont({
-  src: "../styles/fonts/foobar_pro/FoobarPro-Regular.ttf.woff",
-  weight: "600",
-  style: "normal",
-  variable: "--font-foobar",
+// TODO: Averifier si on garde ou non
+
+// const titleFont = localFont({
+//   src: "../styles/fonts/foobar_pro/FoobarPro-Regular.ttf.woff",
+//   weight: "500",
+//   style: "normal",
+//   variable: "--font-foobar",
+// });
+
+const titleFont = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-titleFont",
 });
 
 export const metadata: Metadata = {
@@ -38,11 +47,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${foobarPro.variable} ${AlternatesItalic.variable}`}
+        className={`${openSans.variable} ${titleFont.variable} ${AlternatesItalic.variable}`}
       >
         <Header />
         {children}
-        <BackgroundImage />
       </body>
     </html>
   );

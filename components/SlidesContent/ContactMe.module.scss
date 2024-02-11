@@ -18,7 +18,7 @@
 
   .contact {
     position: relative;
-    transform: scale(0.318) translate(20rem, -10rem);
+    transform: app.$image-slide-in;
     box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
     border-radius: 0.6rem;
     backdrop-filter: blur(6px);

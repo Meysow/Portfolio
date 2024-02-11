@@ -8,6 +8,7 @@ import ScrollDownArrow from "@/components/ScrollDownArrow";
 
 // IMAGE //
 
+import BackgroundImage from "@/components/BackgroundImage";
 import Slide from "@/components/Slide";
 import AboutMe from "@/components/SlidesContent/AboutMe";
 import ContactMe from "@/components/SlidesContent/ContactMe";
@@ -137,6 +138,9 @@ const HomePage = () => {
         {selectedSection === 1 && (
           <ScrollDownArrow setSelectedSection={setSelectedSection} />
         )}
+
+        {/* BA2CKGROUND */}
+        <BackgroundImage />
       </div>
     </div>
   );

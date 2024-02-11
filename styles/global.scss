@@ -57,11 +57,12 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: #0d1520;
 
   // TO ADJUST
   color: var(--color-text);
   --font-text: var(--font-openSans);
-  --font-title: var(--font-foobar);
+  --font-title: var(--font-titleFont);
   --font-button: var(--font-alternates);
   font-family: var(--font-text), sans-serif;
 }
@@ -87,10 +88,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
   font-family: var(--font-title), sans-serif;
-  letter-spacing: 0.3rem;
-  text-transform: uppercase;
+  letter-spacing: 0.318rem;
+  line-height: 1;
+  // text-transform: uppercase;
   // font-size: clamp(1.6rem, calc(1.2rem + 1vw), 3.6rem);
 }
 

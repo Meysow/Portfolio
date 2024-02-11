@@ -13,19 +13,21 @@ $global-padding-lg: 3rem;
 
 // FONTS SIZE // *TODO*
 
-$title-font-size: clamp(2.8rem, calc(1.5rem + 2.3vw), 9rem);
-$icon-font-size: clamp(1.4rem, calc(0.9rem + 0.9vw), 3.2rem);
+$title-font-size: clamp(2.8rem, calc(1.3rem + 3vw), 9rem);
+$icon-font-size: clamp(1.4rem, calc(0.6rem + 0.8vw), 3.2rem);
+
+// IMAGE SLIDE IN //
+
+$image-slide-in: scale(0.5) translate(25rem, -3rem);
 
 // KEYFRAMES //
 
 @keyframes slide-in-text-one {
   0% {
     transform: translateX(-110%);
-    opacity: 0.318;
   }
   40% {
     transform: translateX(-110%);
-    opacity: 0.618;
   }
 
   90% {
