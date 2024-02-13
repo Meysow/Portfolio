@@ -141,6 +141,9 @@ const HomePage = () => {
 
         {/* BA2CKGROUND */}
         <BackgroundImage />
+        <div>
+          <h2 className={style.backgroundTitle}>Thibault Dilman.</h2>
+        </div>
       </div>
     </div>
   );

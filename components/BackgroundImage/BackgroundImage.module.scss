@@ -1,3 +1,5 @@
+@use "../../styles/app.scss";
+
 .bg_container {
   z-index: -200;
   width: 100vw;
@@ -7,6 +9,8 @@
   inset: 0;
 
   .bg {
+    // @include app.bg-grid;
+
     color: var(--color-text);
     position: absolute;
     left: -4%;
@@ -17,7 +21,7 @@
     img {
       height: 100%;
       width: 100%;
-      opacity: 0.95;
+      filter: contrast(75%) sepia(10%);
     }
   }
 }

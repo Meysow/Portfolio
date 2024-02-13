@@ -1,7 +1,7 @@
-import Image from "next/image";
 import styles from "./ProjectsPage.module.scss";
 
-import background from "@/public/assets/manchotRight.png";
+import { projectList } from "@/datas/projectList";
+import ProjectImage from "./components/projectImage";
 
 const ProjectsPage = () => {
   return (
@@ -14,30 +14,32 @@ const ProjectsPage = () => {
           <div className={styles.filter}>
             React - Next - TS - JS - Node - Mongo
           </div>
+
           <div className={styles.projectsContainer}>
             {/* Project 1 */}
-            <div className={styles.project}>
-              <div className={styles.figure}>
-                <Image src={background} alt="manchot" />
-              </div>
-              <div className={styles.description}>
-                <h3 className={styles.name}>Manchot project</h3>
-                <p className={styles.legend}>Brief recap</p>
-                <p className={styles.stack}>React, ts, et autres...</p>
-              </div>
-            </div>
 
-            {/* Project 2 */}
-            <div className={styles.project}>
-              <div className={styles.figure}>
-                <Image src={background} alt="manchot" />
+            {projectList.map((project) => (
+              <div className={styles.project} key={project.id}>
+                <div className={styles.figure}>
+                  <ProjectImage project={project} />
+                </div>
+                <div className={styles.description}>
+                  <h3 className={styles.name}>{project.name}</h3>
+                  <p className={styles.legend}>{project.blabla}</p>
+                  <div className={styles.stack}>
+                    <ul className={styles.tags}>
+                      {project.tags.map((tag, index) => (
+                        <li className={styles.tags} key={index}>
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className={styles.description}>
-                <h3 className={styles.name}>Manchot project</h3>
-                <p className={styles.legend}>Brief recap</p>
-                <p className={styles.stack}>React, ts, et autres...</p>
-              </div>
-            </div>
+            ))}
+
+            {/* Project 3 */}
           </div>
         </div>
       </section>

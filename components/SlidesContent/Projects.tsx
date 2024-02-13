@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import amazona from "@/public/Amazona large.png";
+import amazona from "@/public/assets/Amazona large.png";
 import Image from "next/image";
 import style from "./Projects.module.scss";
 
@@ -23,9 +23,11 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         </h2>
         <span className={style.icon}>&gt;</span>
         <span className={style.icon}>_</span>
-        <p className={style.text}>From Amazona to Unique Digital </p>
-        <p className={style.textTwo}>Experiences: </p>
-        <p className={style.textThree}>Discover My Projects.</p>
+        <p className={style.text}>
+          From Amazona to Unique Digital Experiences:{" "}
+        </p>
+        <p className={style.textTwo}>Discover My Projects.</p>
+        {/* <p className={style.textThree}></p> */}
 
         <Button className={style.buttonMargin} href="/projects">
           Learn More

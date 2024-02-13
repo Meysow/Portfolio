@@ -14,7 +14,10 @@
     max-width: 58rem;
   }
   @include app.mediumScreen() {
-    max-width: 70rem;
+    max-width: 66rem;
+  }
+  @include app.largeScreen() {
+    max-width: 93rem;
   }
 
   .section {
@@ -30,20 +33,17 @@
       padding-right: 1.5rem;
       padding-left: 1.5rem;
 
-      @include app.mediumScreen() {
-        flex: 0 0 83.333333%;
-      }
-
       .title {
         font-weight: 700;
         //TODO: A ajuster
         font-size: app.$title-font-size;
         text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
-        margin: 9rem 0 3rem;
+        margin: 9rem 0 6rem;
       }
 
       .filter {
-        margin-bottom: 1.6rem;
+        margin-bottom: 2.8rem;
+        font-size: 1.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,25 +57,54 @@
           width: 100%;
           margin-bottom: 4.4rem;
 
+          @include app.largeScreen() {
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+            &:nth-child(2n) {
+              flex-direction: row-reverse;
+            }
+            &:nth-child(2n + 1) {
+              flex-direction: row;
+            }
+          }
+
           .figure {
             border-radius: 0.6rem;
             overflow: hidden;
+            @include app.largeScreen() {
+              flex-basis: 50%;
+            }
           }
           .description {
+            @include app.largeScreen() {
+              flex-basis: 50%;
+            }
             .name {
               font-size: 2.4rem;
+              font-weight: 500;
               // font-size: clamp(2.4rem, calc(1.3rem + 1vw), 5.2rem);
-              margin-bottom: 1.4rem;
+              margin-bottom: 1.6rem;
             }
             .legend {
-              font-size: 1.8rem;
+              font-size: 1.5rem;
+              line-height: 1.35;
+              color: rgba(var(--color-text-rgb), 0.83);
               // font-size: app.$icon-font-size;
               margin-bottom: 0.6rem;
             }
             .stack {
-              font-size: 1.4rem;
               // font-size: clamp(1.2rem, calc(0.6rem + 0.8vw), 2.4rem);
               color: rgba(var(--color-text-rgb), 0.83);
+              margin-top: 1.2rem;
+
+              .tags {
+                font-size: 1.4rem;
+                font-weight: lighter;
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 0.6rem;
+              }
             }
           }
         }

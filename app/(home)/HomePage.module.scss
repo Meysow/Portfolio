@@ -12,4 +12,18 @@
     overflow: hidden;
     position: relative;
   }
+
+  .backgroundTitle {
+    font-weight: 600;
+    font-family: Abril FatFace;
+    font-size: 14.5vmin;
+    bottom: -1rem;
+    left: 2rem;
+    opacity: 0.02;
+    position: fixed;
+    color: var(--color-text);
+    white-space: pre;
+    letter-spacing: -0.6rem;
+    z-index: -1;
+  }
 }

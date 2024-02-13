@@ -29,13 +29,7 @@ const SkillDisplay = () => {
       {skills.map((skill, index) => (
         <Tooltip key={index} text={skill.name}>
           <div className={styles.skillItem}>
-            <Image
-              priority
-              src={skill.icon.src}
-              alt={skill.name}
-              width={120}
-              height={120}
-            />
+            <Image src={skill.icon} alt={skill.name} />
           </div>
         </Tooltip>
       ))}

@@ -1,9 +1,10 @@
 @use "../../styles/app.scss";
 
 .header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 1000;
+  top: 0;
 
   // TODO : A ajuster les padding, voir creer une function
   padding: app.$global-padding-sm;
@@ -29,12 +30,12 @@
     .navBar {
       display: flex;
       gap: 1rem;
-      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.8));
+      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.85));
     }
 
     .name {
       margin-right: 1.6rem;
-      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.8));
+      text-shadow: (2px 4px 3px rgb(0 0 0 / 0.85));
     }
   }
 }

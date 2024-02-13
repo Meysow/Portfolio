@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import styles from './Tooltip.module.scss';
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
+import styles from "./Tooltip.module.scss";
 
 interface PropTypes {
   children: React.ReactNode;
   text: string;
-  key: number;
+  key?: number;
 }
 
 const Tooltip = ({ children, text }: PropTypes) => {
@@ -16,7 +16,7 @@ const Tooltip = ({ children, text }: PropTypes) => {
   const handleMouseEnter = () => {
     hoverTimeout.current = setTimeout(() => {
       setShowTooltip(true);
-    }, 26); // 0.016 seconds delay
+    }, 26); // 0.026 seconds delay
   };
 
   const handleMouseLeave = () => {
