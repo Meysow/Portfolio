@@ -47,10 +47,10 @@ const Hamburger = () => {
         </Link>
         <Link
           className={styles.link}
-          href="/"
+          href="/about-me"
           onClick={() => setActive((prev) => !prev)}
         >
-          Link 1
+          About
         </Link>
         <Link
           className={styles.link}

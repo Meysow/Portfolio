@@ -10,11 +10,6 @@ const ProjectsPage = () => {
         <div className={styles.wrapper}>
           <h1 className={styles.title}>Projects.</h1>
 
-          {/* TODO: probablement a virer => */}
-          <div className={styles.filter}>
-            React - Next - TS - JS - Node - Mongo
-          </div>
-
           <div className={styles.projectsContainer}>
             {/* Project 1 */}
 

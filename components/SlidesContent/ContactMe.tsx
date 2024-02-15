@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import SectionTitle from "../SectionTitle";
 import style from "./ContactMe.module.scss";
 
 interface propTypes {
@@ -31,6 +32,7 @@ const ContactMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
       <div className={style.contact}>
         <ContactForm />
       </div>
+      <SectionTitle title="Contacts." fontSize={27} />
     </div>
   );
 };

@@ -15,7 +15,12 @@ const ProjectImage = ({ project }: PropTypes) => {
         <h3 className={styles.header}>{project.name}</h3>
         <div className={styles.links}>
           <Tooltip text="Demo">
-            <a className={styles.link} href={project.demo}>
+            <a
+              className={styles.link}
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -33,7 +38,12 @@ const ProjectImage = ({ project }: PropTypes) => {
             </a>
           </Tooltip>
           <Tooltip text="Github">
-            <a className={styles.link} href={project.git}>
+            <a
+              className={styles.link}
+              href={project.git}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

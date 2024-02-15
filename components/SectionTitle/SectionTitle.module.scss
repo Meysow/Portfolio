@@ -1,0 +1,11 @@
+.backgroundTitle {
+  animation: all 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+  bottom: -1rem;
+  left: 2rem;
+  opacity: 0.029;
+  position: absolute;
+  color: var(--color-text);
+  white-space: pre;
+  letter-spacing: -0.2rem;
+  z-index: -1;
+}

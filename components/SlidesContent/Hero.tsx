@@ -1,5 +1,6 @@
 import portrait from "@/public/assets/portrait final full circle v6.png";
 import Image from "next/image";
+import SectionTitle from "../SectionTitle";
 import style from "./Hero.module.scss";
 
 interface propTypes {
@@ -30,12 +31,14 @@ const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
       </div>
       <div className={style.portrait}>
         <Image
+          priority
           src={portrait}
           alt="portait"
           placeholder="blur"
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
         />
       </div>
+      <SectionTitle title="Thibault D." fontSize={25} />
     </div>
   );
 };

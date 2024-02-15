@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import climb from "@/public/assets/indoor.png";
 import Image from "next/image";
+import SectionTitle from "../SectionTitle";
 import style from "./AboutMe.module.scss";
 
 interface propTypes {
@@ -24,7 +25,9 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.textTwo}>
           A Passion for Climbing, Trekking, and Chess.
         </p>
-        <Button className={style.buttonMargin}>Discover Me</Button>
+        <Button className={style.buttonMargin} href="/about-me">
+          Discover Me
+        </Button>
       </div>
       <div className={style.illustration}>
         <Image
@@ -34,6 +37,7 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
         />
       </div>
+      <SectionTitle title="About Me." fontSize={27} />
     </div>
   );
 };

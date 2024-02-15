@@ -8,6 +8,7 @@
   margin-right: auto;
   margin-left: auto;
   justify-content: center;
+  padding-bottom: 9rem;
 
   // TODO: Creer un mixin pour gerer les tailles max des pages annexes
   @include app.smallScreen() {
@@ -38,15 +39,7 @@
         //TODO: A ajuster
         font-size: app.$title-font-size;
         text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
-        margin: 9rem 0 6rem;
-      }
-
-      .filter {
-        margin-bottom: 2.8rem;
-        font-size: 1.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: 9rem 0 7rem;
       }
 
       .projectsContainer {

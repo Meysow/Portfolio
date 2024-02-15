@@ -1,5 +1,5 @@
 import SkillDisplay from "@/components/SkillDisplay";
-import Button from "../Button";
+import SectionTitle from "../SectionTitle";
 import style from "./Skills.module.scss";
 
 interface propTypes {
@@ -22,13 +22,16 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.text}>Crafting Digital Experiences </p>
         <p className={style.textTwo}>with Expertise and Passion.</p>
 
-        <Button className={style.buttonMargin}>Download My C.V.</Button>
+        {/* <Button className={style.buttonMargin} href="public/SocialPro.png">
+          Download My C.V.
+        </Button> */}
       </div>
       <div className={style.skills}>
         <div className={style.skillsCard}>
           <SkillDisplay />
         </div>
       </div>
+      <SectionTitle title="Skills." fontSize={27} />
     </div>
   );
 };
