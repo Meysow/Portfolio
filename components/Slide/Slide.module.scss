@@ -18,22 +18,3 @@ Essayer de transformer le systeme de slide par un composant react a part
 }
 
 // TODO: verifier si on garde ca =>
-.right {
-  color: var(--color-text);
-  align-self: center;
-  margin-left: auto;
-}
-
-.portrait,
-.illustration,
-.skills {
-  --opacity: 0.99;
-  animation: fadeIn 0.6s cubic-bezier(0.43, 0.18, 0.45, 1);
-  img,
-  .skillsCard {
-    transform: scale(1) translate(0, 0);
-  }
-}
-.contact {
-  transform: scale(1) translate(0, 0);
-}

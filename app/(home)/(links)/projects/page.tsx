@@ -1,5 +1,6 @@
 import styles from "./ProjectsPage.module.scss";
 
+import SectionTitle from "@/components/SectionTitle";
 import { projectList } from "@/datas/projectList";
 import ProjectImage from "./components/projectImage";
 
@@ -40,9 +41,7 @@ const ProjectsPage = () => {
       </section>
 
       {/* BACGROUND TITLE */}
-      <div>
-        <h2 className={styles.backgroundTitle}>Projects.</h2>
-      </div>
+      <SectionTitle title="Projects." fontSize={24} vertical />
     </div>
   );
 };

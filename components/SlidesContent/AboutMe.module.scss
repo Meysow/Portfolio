@@ -53,10 +53,7 @@
     @include app.activeStyle;
     .illustration {
       img {
-        // transform: scale(1) translate(0, 0);
-        //// temporary
         transform: scale(1);
-        ////
       }
     }
   }

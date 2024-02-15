@@ -1,20 +1,24 @@
-import { Abril_Fatface } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import styles from "./SectionTitle.module.scss";
 
-const AbrilFatface = Abril_Fatface({
+const ArvoFont = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["900"],
 });
 
 interface propTypes {
   title: string;
   fontSize: number;
+  vertical?: boolean;
 }
 
-const SectionTitle = ({ title, fontSize }: propTypes) => {
+const SectionTitle = ({ title, fontSize, vertical }: propTypes) => {
+  const className = vertical
+    ? styles.backgroundTitleVertical
+    : styles.backgroundTitle;
   return (
     <h4
-      className={`${styles.backgroundTitle} ${AbrilFatface.className}`}
+      className={`${className} ${ArvoFont.className}`}
       style={{ fontSize: `${fontSize}vmin` }}
     >
       {title}

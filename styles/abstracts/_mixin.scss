@@ -63,7 +63,7 @@
   }
 
   .icon {
-    animation: fadeInSpan 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation: fadeInSpan 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
     animation-fill-mode: forwards;
   }
   .text {
@@ -79,13 +79,8 @@
     animation-fill-mode: forwards;
   }
 
-  button {
-    --opacity: 1;
-    animation: slide-in-text-one 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
-  }
+  button,
   a {
-    --opacity: 1;
     animation: slide-in-text-one 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
     animation-fill-mode: forwards;
   }
@@ -109,14 +104,14 @@
 
 // 1200px
 @mixin largeScreen() {
-  @media (min-width: 75em) {
+  @media (min-width: 75rem) {
     @content;
   }
 }
 
 // 1800px
 @mixin extraLargeScreen() {
-  @media (min-width: 112.5em) {
+  @media (min-width: 112.5rem) {
     @content;
   }
 }

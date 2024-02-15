@@ -18,22 +18,21 @@ $icon-font-size: clamp(1.4rem, calc(0.6rem + 0.8vw), 3.2rem);
 
 // IMAGE SLIDE IN //
 
-$image-slide-in: scale(0.5) translate(25rem, -3rem);
+$image-slide-in: scale(0.5) translate(27rem, -3rem);
 
 // KEYFRAMES //
 
 @keyframes slide-in-text-one {
   0% {
-    transform: translateX(-110%);
+    transform: translateX(-120%, 0, 0);
   }
   40% {
-    transform: translateX(-110%);
+    transform: translate3d(-120%, 0, 0);
   }
 
   90% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
-    overflow: visible;
   }
 }
 

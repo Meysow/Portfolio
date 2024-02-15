@@ -2,10 +2,22 @@
   animation: all 1s cubic-bezier(0.43, 0.18, 0.45, 1);
   bottom: -1rem;
   left: 2rem;
-  opacity: 0.029;
+  opacity: 0.0318;
   position: absolute;
   color: var(--color-text);
   white-space: pre;
   letter-spacing: -0.2rem;
+  z-index: -1;
+}
+
+.backgroundTitleVertical {
+  bottom: 0px;
+  opacity: 0.218;
+  left: -1.4rem;
+  position: fixed;
+  color: var(--color-dark);
+  white-space: pre;
+  letter-spacing: -0.6rem;
+  writing-mode: vertical-rl;
   z-index: -1;
 }
