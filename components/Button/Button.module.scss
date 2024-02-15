@@ -1,5 +1,7 @@
 .wrapper {
   padding: 1rem 0rem;
+  display: flex;
+  overflow: hidden;
   .button {
     color: var(--color-highlight);
     font-size: clamp(1.6rem, calc(1.2rem + 3vw), 2.8rem);

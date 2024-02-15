@@ -81,7 +81,12 @@
 
   button {
     --opacity: 1;
-    animation: fadeIn 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation: slide-in-text-one 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
+    animation-fill-mode: forwards;
+  }
+  a {
+    --opacity: 1;
+    animation: slide-in-text-one 1.2s cubic-bezier(0.43, 0.18, 0.45, 1);
     animation-fill-mode: forwards;
   }
 }

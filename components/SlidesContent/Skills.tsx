@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import SkillDisplay from "@/components/SkillDisplay";
 import SectionTitle from "../SectionTitle";
 import style from "./Skills.module.scss";
@@ -22,9 +23,13 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.text}>Crafting Digital Experiences </p>
         <p className={style.textTwo}>with Expertise and Passion.</p>
 
-        {/* <Button className={style.buttonMargin} href="public/SocialPro.png">
+        <Button
+          className={style.buttonMargin}
+          href="/ThibaultDilmanResume.pdf"
+          download
+        >
           Download My C.V.
-        </Button> */}
+        </Button>
       </div>
       <div className={style.skills}>
         <div className={style.skillsCard}>

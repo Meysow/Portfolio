@@ -3,6 +3,7 @@ import styles from "./Button.module.scss";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
+  download?: boolean;
 }
 
 const Button = ({
@@ -10,6 +11,7 @@ const Button = ({
   children,
   type = "button",
   href,
+  download,
   ...props
 }: ButtonProps) => {
   const buttonContent = (
@@ -17,6 +19,16 @@ const Button = ({
       {children}
     </button>
   );
+
+  if (href && download) {
+    return (
+      <div className={styles.wrapper}>
+        <a className={`${styles.button} ${className}`} href={href} download>
+          {children}
+        </a>
+      </div>
+    );
+  }
 
   if (href) {
     return (
