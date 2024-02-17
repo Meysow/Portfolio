@@ -10,7 +10,8 @@ const Header = () => {
           Thibault Dilman
         </Link>
         <nav className={style.navBar}>
-          <div>logo 1</div>
+          {/* TODO: mettre une icone + lien vers github */}
+          {/* <div>logo 1</div> */}
 
           <Hamburger />
         </nav>

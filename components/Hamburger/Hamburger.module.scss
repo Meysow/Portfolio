@@ -195,7 +195,9 @@ $span-color: var(--color-text);
     display: inline-block;
     text-decoration: none;
     margin: 2.4rem;
-    font-size: 2.4rem;
+    font-family: var(--font-titleFont);
+    font-size: 13vmin;
+    text-transform: uppercase;
     letter-spacing: 0.3rem;
 
     &::after {

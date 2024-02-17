@@ -1,5 +1,6 @@
 import styles from "./ProjectsPage.module.scss";
 
+import Button from "@/components/Button";
 import SectionTitle from "@/components/SectionTitle";
 import { projectList } from "@/datas/projectList";
 import ProjectImage from "./components/projectImage";
@@ -36,6 +37,9 @@ const ProjectsPage = () => {
             ))}
 
             {/* Project 3 */}
+          </div>
+          <div className={styles.buttonWrapper}>
+            <Button href="/ThibaultDilmanResume.pdf">Download My CV</Button>
           </div>
         </div>
       </section>

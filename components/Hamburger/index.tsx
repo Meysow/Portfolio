@@ -50,21 +50,7 @@ const Hamburger = () => {
           href="/about-me"
           onClick={() => setActive((prev) => !prev)}
         >
-          About
-        </Link>
-        <Link
-          className={styles.link}
-          href="/"
-          onClick={() => setActive((prev) => !prev)}
-        >
-          Link 1
-        </Link>
-        <Link
-          className={styles.link}
-          href="/"
-          onClick={() => setActive((prev) => !prev)}
-        >
-          Link 1
+          About Me
         </Link>
       </div>
     </>
