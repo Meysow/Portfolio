@@ -7,7 +7,7 @@ Essayer de transformer le systeme de slide par un composant react a part
 
 .sections {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: app.$global-padding-sm;
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);

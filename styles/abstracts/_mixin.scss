@@ -121,7 +121,7 @@
 @mixin bg-grid {
   content: "";
   position: fixed;
-  height: 109vh;
+  height: 109%;
   width: 109vw;
   background-repeat: repeat;
   background-attachment: scroll;
