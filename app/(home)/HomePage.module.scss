@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   overflow: hidden;
+  touch-action: none;
 
   .main {
     height: 100vh;
