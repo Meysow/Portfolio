@@ -46,6 +46,7 @@ const HomePage = () => {
 
   const handleOnMouseScroll = useCallback(
     (e: React.WheelEvent<HTMLDivElement>) => {
+      e.preventDefault();
       const currentTime = e.timeStamp;
       if (
         currentTime - lastInteractionRef.current <
@@ -63,12 +64,14 @@ const HomePage = () => {
 
   const handleTouchStart = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
+      e.preventDefault();
       touchStartRef.current = e.targetTouches[0].clientY;
     },
     []
   );
 
   const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
     touchEndRef.current = e.targetTouches[0].clientY;
   }, []);
 
