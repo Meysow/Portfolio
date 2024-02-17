@@ -101,14 +101,14 @@ const HomePage = () => {
   }, [changeSection, delayBetweenSectionChange]);
 
   return (
-    <div className={style.layout}>
-      <div
-        className={style.main}
-        onWheel={handleOnMouseScroll}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+    <div
+      className={style.layout}
+      onWheel={handleOnMouseScroll}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className={style.main}>
         <Slide selectedSection={selectedSection} sectionNumber={1}>
           <Hero selectedSection={selectedSection} sectionNumber={1} />
         </Slide>

@@ -65,6 +65,9 @@ body {
   --font-title: var(--font-titleFont);
   --font-button: var(--font-alternates);
   font-family: var(--font-text), sans-serif;
+
+  overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
 }
 
 body,
