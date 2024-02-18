@@ -21,11 +21,10 @@
     transform: app.$image-slide-in;
     box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
     border-radius: 0.6rem;
-    backdrop-filter: blur(6px);
     transition: 0.9s;
     font-size: 1.4rem;
     margin-top: 1.6rem;
-    background-color: rgba(var(--color-dark-rgb), 0.2);
+    background-color: rgba(var(--color-dark-rgb), 0.17);
 
     @include app.mediumScreen() {
       flex-basis: 37%;

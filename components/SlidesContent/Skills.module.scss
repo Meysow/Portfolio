@@ -29,10 +29,9 @@
       transform: app.$image-slide-in;
       box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
       border-radius: 0.6rem;
-      backdrop-filter: blur(9px);
       transition: 0.9s;
       padding: 2rem 1.5rem;
-      background-color: rgba(var(--color-dark-rgb), 0.2);
+      background-color: rgba(var(--color-dark-rgb), 0.17);
 
       @include app.largeScreen() {
         padding: 3.2rem 2.2rem;

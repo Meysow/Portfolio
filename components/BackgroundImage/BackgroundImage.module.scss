@@ -1,21 +1,21 @@
 @use "../../styles/app.scss";
 
 .bg_container {
-  z-index: -200;
   width: 100vw;
   height: 100%;
   position: absolute;
   overflow: hidden;
+  z-index: -200;
 
   .bg {
-    // @include app.bg-grid;
+    @include app.bg-grid;
 
-    color: var(--color-text);
-    position: absolute;
-    left: -4%;
-    top: -4%;
-    height: 109%;
-    width: 109%;
+    // color: var(--color-text);
+    // position: absolute;
+    // left: -4%;
+    // top: -4%;
+    // height: 109%;
+    // width: 109%;
 
     img {
       height: 100%;
