@@ -7,7 +7,7 @@ Essayer de transformer le systeme de slide par un composant react a part
 
 .sections {
   position: absolute;
-  height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   padding: app.$global-padding-sm;
   transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -16,5 +16,3 @@ Essayer de transformer le systeme de slide par un composant react a part
   align-items: center;
   overflow: hidden;
 }
-
-// TODO: verifier si on garde ca =>

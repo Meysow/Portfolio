@@ -15,6 +15,7 @@ import ContactMe from "@/components/SlidesContent/ContactMe";
 import Hero from "@/components/SlidesContent/Hero";
 import Projects from "@/components/SlidesContent/Projects";
 import Skills from "@/components/SlidesContent/Skills";
+import useAdjustVH from "@/hooks/useAdjustVH";
 // import climb from '@/public/assets/chessClimb.png';
 // import climb from '@/public/assets/archOne.png';
 // import climb from '@/public/assets/archTwo.png';
@@ -29,6 +30,8 @@ const HomePage = () => {
 
   const numberOfSections = 5;
   const delayBetweenSectionChange = 600;
+
+  useAdjustVH();
 
   const changeSection = useCallback(
     (increment: boolean) => {
