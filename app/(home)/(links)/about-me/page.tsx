@@ -1,4 +1,7 @@
 import SectionTitle from "@/components/SectionTitle";
+import climbing from "@/public/assets/climbing.png";
+import outdoor from "@/public/assets/outdoor.jpg";
+import Image from "next/image";
 import styles from "./AboutMe.module.scss";
 
 const AboutMe = () => {
@@ -42,6 +45,7 @@ const AboutMe = () => {
               my analytical approach to life and work, teaching me patience,
               strategy, and the joy of overcoming challenges.
             </p>
+            <Image src={climbing} alt="climbing..." />
             <h2 className={styles.smallTitle}>Embracing the Outdoors</h2>
             <p className={styles.paragraph}>
               Beyond the screen, I find balance and inspiration in the great
@@ -55,6 +59,7 @@ const AboutMe = () => {
               keeps me grounded and ready to tackle the challenges of web
               development.
             </p>
+            <Image src={outdoor} alt="Outdoor picture of me." />
             <h2 className={styles.smallTitle}>
               Web Development: A New Challenge
             </h2>

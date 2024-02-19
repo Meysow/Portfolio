@@ -1,7 +1,7 @@
 .container {
   position: absolute;
   // left: calc(5% - 100px);
-  left: calc(4% + 1.4rem);
+  left: calc(4% + 1.5rem);
   bottom: calc(50% + 10rem);
   transform-origin: center left;
   transform: rotate(90deg);
@@ -12,7 +12,7 @@
     float: left;
     margin-right: 30px;
     background-color: rgba(var(--color-secondary-rgb), 0.3);
-    border-radius: 18px;
+    border-radius: 13px;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     outline: none;
@@ -21,7 +21,7 @@
   }
   .button:hover {
     color: rgba(var(--color-secondary-rgb), 0.9);
-    background-color: rgba(var(--color-secondary-rgb), 0.4);
+    background-color: rgba(var(--color-secondary-rgb), 0.45);
   }
 
   .button:last-child {
@@ -31,6 +31,6 @@
   .button.active {
     width: 39px;
     cursor: auto;
-    background-color: rgba(var(--color-secondary-rgb), 0.4);
+    background-color: rgba(var(--color-secondary-rgb), 0.45);
   }
 }

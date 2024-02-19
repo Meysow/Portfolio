@@ -72,6 +72,11 @@
           color: rgba(var(--color-text-rgb), 0.83);
           // font-size: app.$icon-font-size;
         }
+        img {
+          max-width: 80%;
+          border-radius: 1.6rem;
+          margin-bottom: 2.8rem;
+        }
       }
     }
   }
