@@ -1,4 +1,5 @@
-import portrait from "@/public/assets/portrait final full circle v6.png";
+// import portrait from "@/public/assets/portrait final full circle v6.png";
+import portrait from "@/public/assets/test3.png";
 import Image from "next/image";
 import SectionTitle from "../SectionTitle";
 import style from "./Hero.module.scss";

@@ -37,7 +37,7 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
         />
       </div>
-      <SectionTitle title="About Me." fontSize={24} />
+      <SectionTitle title="About Me." fontSize={23} />
     </div>
   );
 };

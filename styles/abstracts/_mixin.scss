@@ -86,6 +86,25 @@
   }
 }
 
+// BACKGROUND with grid like squares //
+
+@mixin bg-grid {
+  content: "";
+  position: fixed;
+  height: 109%;
+  width: 109vw;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-origin: padding-box;
+  background-clip: border-box;
+  background-image: linear-gradient(currentcolor 1px, transparent 1px),
+    linear-gradient(to right, currentcolor 1px, transparent 1px);
+  background-size: 94px 90px;
+  color: rgba(113, 113, 113, 0.13);
+  background-color: transparent;
+  z-index: -1;
+}
+
 //*********** MEDIA QUERIES ***************//
 
 // 600px
@@ -116,53 +135,34 @@
   }
 }
 
-// BACKGROUND with grid like squares //
-
-@mixin bg-grid {
-  content: "";
-  position: fixed;
-  height: 109%;
-  width: 109vw;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-origin: padding-box;
-  background-clip: border-box;
-  background-image: linear-gradient(currentcolor 1px, transparent 1px),
-    linear-gradient(to right, currentcolor 1px, transparent 1px);
-  background-size: 94px 90px;
-  color: rgba(113, 113, 113, 0.13);
-  background-color: transparent;
-  z-index: -1;
-}
-
 ////// TODO: Faire le tri //////
 
-@mixin bg-gradient {
-  background: linear-gradient(
-    61.8deg,
-    rgba($color-dark, 1) 0%,
-    rgba($color-primary, 1) 33%,
-    rgba($color-secondary, 1) 100%
-  );
-}
+// @mixin bg-gradient {
+//   background: linear-gradient(
+//     61.8deg,
+//     rgba($color-dark, 1) 0%,
+//     rgba($color-primary, 1) 33%,
+//     rgba($color-secondary, 1) 100%
+//   );
+// }
 
-@mixin breakpoint($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
-      @content;
-    }
-  } @else {
-    @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
-    + 'Please make sure it is defined in `$grid-breakpoints` map.';
-  }
-}
+// @mixin breakpoint($breakpoint) {
+//   @if map-has-key($breakpoints, $breakpoint) {
+//     @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+//       @content;
+//     }
+//   } @else {
+//     @warn 'Unfortunately, no value could be retrieved from `#{$breakpoint}`. '
+//     + 'Please make sure it is defined in `$grid-breakpoints` map.';
+//   }
+// }
 
-@mixin content-width {
-  width: min(92%, map_get($container-max-widths, xl));
-  // max-width: map_get($container-max-widths, xs);
-  padding: 2.8rem 1rem;
+// @mixin content-width {
+//   width: min(92%, map_get($container-max-widths, xl));
+//   // max-width: map_get($container-max-widths, xs);
+//   padding: 2.8rem 1rem;
 
-  @include breakpoint("lg") {
-    width: min(88%, map_get($container-max-widths, xl));
-  }
-}
+//   @include breakpoint("lg") {
+//     width: min(88%, map_get($container-max-widths, xl));
+//   }
+// }
