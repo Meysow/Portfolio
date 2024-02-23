@@ -5,6 +5,7 @@
 
   .titleWrapper {
     align-self: center;
+    flex: 1 1 50%;
 
     .portfolio {
       font-size: clamp(2.5rem, calc(1.5rem + 3vw), 7rem);

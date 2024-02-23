@@ -27,7 +27,7 @@ const HomePage = () => {
   const lastInteractionRef = useRef(0);
 
   const numberOfSections = 5;
-  const delayBetweenSectionChange = 600;
+  const delayBetweenSectionChange = 850;
 
   useAdjustVH();
 
