@@ -39,7 +39,7 @@ const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
         />
       </div>
-      <SectionTitle title="Thibault D." fontSize={23} />
+      <SectionTitle title="Thibault D." fontSize={19} />
     </div>
   );
 };

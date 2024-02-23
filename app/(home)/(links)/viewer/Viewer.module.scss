@@ -1,0 +1,71 @@
+@use "../../../../styles/app.scss";
+
+.container {
+  display: flex;
+  width: 100%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  padding-bottom: 9rem;
+
+  // TODO: Creer un mixin pour gerer les tailles max des pages annexes
+  @include app.smallScreen() {
+    max-width: 58rem;
+  }
+  @include app.mediumScreen() {
+    max-width: 66rem;
+  }
+  @include app.largeScreen() {
+    max-width: 93rem;
+  }
+
+  .section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+
+      .title {
+        font-weight: 700;
+        //TODO: A ajuster
+        font-size: app.$title-font-size;
+        text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
+        margin: 9rem 0 7rem;
+      }
+    }
+  }
+}
+
+.container {
+  @include app.sectionContainer;
+  margin-right: auto;
+  margin-left: auto;
+
+  margin-top: 2rem;
+  @include app.largeScreen() {
+    margin-top: 0;
+  }
+
+  .titleWrapper {
+    margin-top: -2rem;
+
+    @include app.mediumScreen() {
+      align-self: center;
+    }
+
+    div {
+      button {
+        margin-top: 1.6rem;
+      }
+    }
+  }
+}

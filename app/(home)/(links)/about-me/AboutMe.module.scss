@@ -52,7 +52,7 @@
         .paragraph {
           font-size: 1.6rem;
           line-height: 1.5;
-          color: rgba(var(--color-text-rgb), 0.83);
+          color: var(--color-text-muted);
           // font-size: app.$icon-font-size;
           margin-bottom: 2.8rem;
         }
@@ -69,13 +69,24 @@
         .contacts {
           font-size: 1.6rem;
           line-height: 1.5;
-          color: rgba(var(--color-text-rgb), 0.83);
+          color: var(--color-text-muted);
           // font-size: app.$icon-font-size;
         }
         img {
-          max-width: 80%;
           border-radius: 1.6rem;
           margin-bottom: 2.8rem;
+          margin-inline: auto;
+        }
+
+        .flexWrapper {
+          @include app.largeScreen() {
+            display: flex;
+            gap: 2.4rem;
+
+            img {
+              margin-bottom: unset;
+            }
+          }
         }
       }
     }

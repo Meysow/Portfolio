@@ -36,7 +36,7 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           <SkillDisplay />
         </div>
       </div>
-      <SectionTitle title="Skills." fontSize={27} />
+      <SectionTitle title="Skills." fontSize={25} />
     </div>
   );
 };

@@ -82,13 +82,13 @@
             .legend {
               font-size: 1.5rem;
               line-height: 1.35;
-              color: rgba(var(--color-text-rgb), 0.83);
+              color: var(--color-text-muted);
               // font-size: app.$icon-font-size;
               margin-bottom: 0.6rem;
             }
             .stack {
               // font-size: clamp(1.2rem, calc(0.6rem + 0.8vw), 2.4rem);
-              color: rgba(var(--color-text-rgb), 0.83);
+              color: var(--color-text-muted);
               margin-top: 1.2rem;
 
               .tags {

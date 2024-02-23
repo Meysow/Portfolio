@@ -26,26 +26,33 @@ const AboutMe = () => {
             <p className={styles.paragraph}>
               A Transitioning from the structured world of trading to the
               dynamic realm of web development, I&apos;ve carried over my
-              meticulous attention to detail and unwavering commitment to
-              excellence. These qualities, honed over years in a high-stakes
-              environment, now fuel my coding and development projects.
+              meticulous attention to detail and commitment to excellence. These
+              qualities, honed over years in a high-stakes environment, now fuel
+              my coding and development projects.
               <br /> I believe that a strong foundation in one analytical field
               can be a powerful asset in another, and my background gives me a
               unique perspective on problem-solving in web development.
             </p>
-            <h2 className={styles.smallTitle}>Passion for Problem-Solving</h2>
-            <p className={styles.paragraph}>
-              My love for problem-solving isn&apos;t confined to the digital
-              world. As an avid climber, I spend hours solving boulder problems,
-              each climb a puzzle that challenges the mind and body in equal
-              measure. Similarly, chess captivates me with its strategic depth
-              and infinite possibilities, mirroring the complexities I navigate
-              while coding.
-              <br /> These hobbies are not just pastimes, they are extensions of
-              my analytical approach to life and work, teaching me patience,
-              strategy, and the joy of overcoming challenges.
-            </p>
-            <Image src={climbing} alt="climbing..." />
+            <div className={styles.flexWrapper}>
+              <div>
+                <h2 className={styles.smallTitle}>
+                  Passion for Problem-Solving
+                </h2>
+                <p className={styles.paragraph}>
+                  My love for problem-solving isn&apos;t confined to the digital
+                  world. As an avid climber, I spend hours solving boulder
+                  problems, each climb a puzzle that challenges the mind and
+                  body in equal measure. Similarly, chess captivates me with its
+                  strategic depth and infinite possibilities, mirroring the
+                  complexities I navigate while coding.
+                  <br /> These hobbies are not just pastimes, they are
+                  extensions of my analytical approach to life and work,
+                  teaching me patience, strategy, and the joy of overcoming
+                  challenges.
+                </p>
+              </div>
+              <Image src={climbing} alt="climbing..." />
+            </div>
             <h2 className={styles.smallTitle}>Embracing the Outdoors</h2>
             <p className={styles.paragraph}>
               Beyond the screen, I find balance and inspiration in the great

@@ -42,7 +42,7 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           sizes="(max-width: 600px) 50vw,(max-width: 900px) 45vw, (max-width: 1200px) 40vw, 37vw"
         />
       </div>
-      <SectionTitle title="Projects." fontSize={25} />
+      <SectionTitle title="Projects." fontSize={21} />
     </div>
   );
 };

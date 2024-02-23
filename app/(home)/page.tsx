@@ -9,6 +9,7 @@ import ScrollDownArrow from "@/components/ScrollDownArrow";
 // IMAGE //
 
 import BackgroundImage from "@/components/BackgroundImage";
+import Loader from "@/components/Loader";
 import Slide from "@/components/Slide";
 import AboutMe from "@/components/SlidesContent/AboutMe";
 import ContactMe from "@/components/SlidesContent/ContactMe";
@@ -16,9 +17,6 @@ import Hero from "@/components/SlidesContent/Hero";
 import Projects from "@/components/SlidesContent/Projects";
 import Skills from "@/components/SlidesContent/Skills";
 import useAdjustVH from "@/hooks/useAdjustVH";
-// import climb from '@/public/assets/chessClimb.png';
-// import climb from '@/public/assets/archOne.png';
-// import climb from '@/public/assets/archTwo.png';
 
 const HomePage = () => {
   const [selectedSection, setSelectedSection] = useState<number>(1);
@@ -145,6 +143,9 @@ const HomePage = () => {
 
         {/* BA2CKGROUND */}
         <BackgroundImage />
+
+        {/* Loader */}
+        <Loader />
       </div>
     </div>
   );

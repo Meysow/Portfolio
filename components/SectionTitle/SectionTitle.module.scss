@@ -2,9 +2,10 @@
   animation: all 1s cubic-bezier(0.43, 0.18, 0.45, 1);
   bottom: -1rem;
   left: 0rem;
-  opacity: 0.0318;
+  opacity: 0.25;
   position: absolute;
-  color: var(--color-text);
+  color: var(--color-dark);
+
   white-space: pre;
   letter-spacing: -0.2rem;
   z-index: -1;

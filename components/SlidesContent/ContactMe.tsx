@@ -32,7 +32,7 @@ const ContactMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
       <div className={style.contact}>
         <ContactForm />
       </div>
-      <SectionTitle title="Contacts." fontSize={24} />
+      <SectionTitle title="Contacts." fontSize={21} />
     </div>
   );
 };

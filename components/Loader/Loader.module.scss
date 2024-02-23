@@ -1,0 +1,32 @@
+.loaderOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 1000;
+  animation: disapear 0.1s forwards;
+  animation-delay: 0.7s;
+
+  .stripe {
+    flex-grow: 1;
+    background-color: black;
+
+    animation: slideUp 0.6s cubic-bezier(0.43, 0.18, 0.45, 1) forwards;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-200%);
+    }
+  }
+
+  @keyframes disapear {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

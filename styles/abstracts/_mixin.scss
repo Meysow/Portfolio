@@ -41,7 +41,7 @@
     .textTwo,
     .textThree,
     .icon {
-      color: rgba(var(--color-text-rgb), 0.83);
+      color: var(--color-text-muted);
       // TODO: a ajuster
       font-size: variables.$icon-font-size;
       text-shadow: 0 4px 4px rgba(2, 11, 22, 0.618);
