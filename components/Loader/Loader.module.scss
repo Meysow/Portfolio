@@ -14,7 +14,7 @@
 
   .stripe {
     flex-grow: 1;
-    background-color: var(--color-primary);
+    background-color: var(--color-darker);
     animation: slideUp 0.69s cubic-bezier(0.43, 0.18, 0.45, 1) forwards;
 
     &:nth-child(1) {

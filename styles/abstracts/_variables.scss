@@ -1,8 +1,5 @@
 // COLORS // *TODO*
 
-$primary-color: #282c34;
-$secondary-color: #61dafb;
-
 // PADDING // *TODO*
 
 $global-padding-sm: 1rem;
@@ -13,8 +10,18 @@ $global-padding-lg: 3rem;
 
 // FONTS SIZE // *TODO*
 
-$title-font-size: clamp(2.8rem, calc(1.3rem + 3vw), 9rem);
-$icon-font-size: clamp(1.4rem, calc(0.6rem + 0.8vw), 3.2rem);
+// $title-font-size: clamp(2.8rem, calc(1.3rem + 3vw), 9rem);
+// $icon-font-size: clamp(1.4rem, calc(0.6rem + 0.8vw), 3.2rem);
+
+$fontSizeSmallTitle: 4.4rem;
+$fontSizeMediumTitle: 5.6rem;
+$fontSizeLargeTitle: 7.2rem;
+$fontSizeExtraLargeTitle: 9rem;
+
+$fontSizeSmallText: 1.6rem;
+$fontSizeMediumText: 1.8rem;
+$fontSizeLargeText: 2.1rem;
+$fontSizeExtraLargeText: 2.4rem;
 
 // IMAGE SLIDE IN //
 

@@ -21,24 +21,32 @@
     transition: 0.9s;
     padding-top: 2.4rem;
 
+    max-width: 40rem;
+
     @include app.smallScreen() {
-      height: calc(var(--vh, 1vh) * 45);
-      img {
-        height: 100%;
-        width: auto;
-      }
+      gap: 2.4rem;
     }
+
+    @include app.mediumScreen() {
+      max-width: 44rem;
+      gap: 3.6rem;
+    }
+    @include app.largeScreen() {
+      gap: 3.6rem;
+      max-width: 56rem;
+    }
+
+    // @include app.smallScreen() {
+    //   height: calc(var(--vh, 1vh) * 45);
+    //   img {
+    //     height: 100%;
+    //     width: auto;
+    //   }
+    // }
 
     @include app.largeScreen() {
       padding-top: 0;
-
-      height: unset;
       flex-basis: 37%;
-      img {
-        max-height: unset;
-        height: auto;
-        width: auto;
-      }
     }
 
     img {
@@ -46,6 +54,7 @@
       box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
       border-radius: 0.6rem;
       transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
+      width: 100%;
     }
   }
 

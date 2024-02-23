@@ -1,5 +1,38 @@
 @use "./variables";
 
+//*********** Font Size ***************//
+@mixin responsiveFontSizeTitle {
+  font-size: 3.6rem;
+  @include smallScreen {
+    font-size: variables.$fontSizeSmallTitle;
+  }
+  @include mediumScreen {
+    font-size: variables.$fontSizeMediumTitle;
+  }
+  @include largeScreen {
+    font-size: variables.$fontSizeLargeTitle;
+  }
+  @include extraLargeScreen {
+    font-size: variables.$fontSizeExtraLargeTitle;
+  }
+}
+
+@mixin responsiveFontSizeText {
+  font-size: 1.4rem;
+  @include smallScreen {
+    font-size: variables.$fontSizeSmallText;
+  }
+  @include mediumScreen {
+    font-size: variables.$fontSizeMediumText;
+  }
+  @include largeScreen {
+    font-size: variables.$fontSizeLargeText;
+  }
+  @include extraLargeScreen {
+    font-size: variables.$fontSizeExtraLargeText;
+  }
+}
+
 //*********** Slide Container ***************//
 @mixin sectionContainer {
   max-width: 75vw;
@@ -29,7 +62,7 @@
     .title {
       font-weight: 500;
       //TODO: A ajuster
-      font-size: variables.$title-font-size;
+      @include responsiveFontSizeTitle;
       text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
 
       margin-bottom: 0.4rem;
@@ -47,7 +80,7 @@
     .icon {
       color: var(--color-text-muted);
       // TODO: a ajuster
-      font-size: variables.$icon-font-size;
+      @include responsiveFontSizeText;
       text-shadow: 0 4px 4px rgba(2, 11, 22, 0.618);
 
       margin-bottom: 0.2rem;
@@ -143,15 +176,6 @@
 }
 
 ////// TODO: Faire le tri //////
-
-// @mixin bg-gradient {
-//   background: linear-gradient(
-//     61.8deg,
-//     rgba($color-dark, 1) 0%,
-//     rgba($color-primary, 1) 33%,
-//     rgba($color-secondary, 1) 100%
-//   );
-// }
 
 // @mixin breakpoint($breakpoint) {
 //   @if map-has-key($breakpoints, $breakpoint) {

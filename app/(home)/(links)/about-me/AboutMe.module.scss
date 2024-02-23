@@ -35,9 +35,10 @@
       padding-left: 1.5rem;
 
       .title {
+        @include app.responsiveFontSizeTitle;
         font-weight: 700;
         //TODO: A ajuster
-        font-size: app.$title-font-size;
+
         text-shadow: 0 7px 7px rgba(2, 11, 22, 0.618);
         margin: 9rem 0 7rem;
       }
@@ -53,7 +54,6 @@
           font-size: 1.6rem;
           line-height: 1.5;
           color: var(--color-text-muted);
-          // font-size: app.$icon-font-size;
           margin-bottom: 2.8rem;
         }
         .titleContacts {
@@ -70,7 +70,6 @@
           font-size: 1.6rem;
           line-height: 1.5;
           color: var(--color-text-muted);
-          // font-size: app.$icon-font-size;
         }
         img {
           border-radius: 1.6rem;

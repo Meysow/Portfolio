@@ -11,6 +11,7 @@
   }
 
   @include app.mediumScreen() {
+    max-width: 41rem;
     gap: 3.6rem;
   }
   @include app.largeScreen() {
