@@ -30,12 +30,7 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         </Button>
       </div>
       <div className={style.illustration}>
-        <Image
-          src={climb}
-          alt="Climbing Illustration"
-          placeholder="blur"
-          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
-        />
+        <Image src={climb} alt="Climbing Illustration" placeholder="blur" />
       </div>
       <SectionTitle title="About Me." fontSize={21} />
     </div>

@@ -6,12 +6,12 @@
   transform: rotate(90deg);
 
   .button {
-    width: 13px;
-    height: 13px;
+    width: 1.3rem;
+    height: 1.3rem;
     float: left;
-    margin-right: 30px;
+    margin-right: 3rem;
     background-color: rgba(var(--color-secondary-rgb), 0.3);
-    border-radius: 13px;
+    border-radius: 1.3rem;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
     outline: none;
@@ -28,7 +28,7 @@
   }
 
   .button.active {
-    width: 39px;
+    width: 3.9rem;
     cursor: auto;
     background-color: rgba(var(--color-secondary-rgb), 0.45);
   }

@@ -36,7 +36,7 @@
   .button:hover,
   .button:focus {
     color: rgba(var(--color-secondary-rgb), 0.9);
-    border: 2px solid var(--color-secondary);
+    border: 0.2rem solid var(--color-secondary);
     box-shadow: 0 5px 5px rgba(var(--color-dark-rgb), 0.6);
     background-color: rgba(var(--color-highlight-rgb), 0.1);
   }

@@ -31,13 +31,7 @@ const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.portfolio}>Portfolio</p>
       </div>
       <div className={style.portrait}>
-        <Image
-          priority
-          src={portrait}
-          alt="portait"
-          placeholder="blur"
-          sizes="(max-width: 768px) 75vw, (max-width: 1200px) 70vw, 50vw"
-        />
+        <Image priority src={portrait} alt="portait" placeholder="blur" />
       </div>
       <SectionTitle title="Thibault D." fontSize={19} />
     </div>

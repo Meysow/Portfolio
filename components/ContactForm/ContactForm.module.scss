@@ -78,13 +78,13 @@
 .input_data .underline {
   position: absolute;
   bottom: 0;
-  height: 2px;
+  height: 0.2rem;
   width: 100%;
 }
 .input_data .underline:before {
   position: absolute;
   content: "";
-  height: 2px;
+  height: 0.2rem;
   width: 100%;
   background: var(--color-secondary);
   transform: scaleX(0);
