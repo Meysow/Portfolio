@@ -11,10 +11,11 @@
   @include largeScreen() {
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 3.6rem;
     width: 75vw;
     margin-top: 0;
+    margin-left: 6rem;
   }
 
   .titleWrapper {
@@ -35,6 +36,9 @@
       @include mediumScreen() {
         margin-bottom: 0.6rem;
       }
+      @include largeScreen() {
+        margin-bottom: 1.4rem;
+      }
     }
 
     .text,
@@ -49,6 +53,9 @@
       margin-bottom: 0.2rem;
       @include mediumScreen() {
         margin-bottom: 0.4rem;
+      }
+      @include largeScreen() {
+        margin-bottom: 0.6rem;
       }
     }
   }

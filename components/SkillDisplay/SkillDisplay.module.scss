@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  max-width: 53rem;
+  max-width: 37rem;
 
   @include app.smallScreen() {
     gap: 2.4rem;
@@ -12,6 +12,10 @@
 
   @include app.mediumScreen() {
     gap: 3.6rem;
+  }
+  @include app.largeScreen() {
+    gap: 3.6rem;
+    max-width: 56rem;
   }
 }
 
