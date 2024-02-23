@@ -8,6 +8,7 @@
   .button {
     width: 1.3rem;
     height: 1.3rem;
+    aspect-ratio: 1 / 1;
     float: left;
     margin-right: 3rem;
     background-color: rgba(var(--color-secondary-rgb), 0.3);
