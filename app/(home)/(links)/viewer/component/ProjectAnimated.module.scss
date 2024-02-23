@@ -12,7 +12,7 @@
   --opacity: 0.99;
   opacity: var(--opacity);
   transition: 0.9s;
-  max-height: 53vh;
+  max-height: calc(var(--vh, 1vh) * 53);
   display: flex;
   justify-content: center;
   position: relative;
@@ -30,7 +30,7 @@
   }
 
   @include app.smallScreen() {
-    height: 56vh;
+    height: calc(var(--vh, 1vh) * 56);
     .cover {
       height: 100%;
       width: auto;
@@ -38,7 +38,7 @@
   }
 
   @include app.largeScreen() {
-    height: 67vh;
+    height: calc(var(--vh, 1vh) * 67);
     flex-basis: 37%;
     .cover {
       max-height: 100%;

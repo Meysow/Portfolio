@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader";
 import SectionTitle from "@/components/SectionTitle";
 import climbing from "@/public/assets/climbing.png";
 import outdoor from "@/public/assets/outdoor.jpg";
@@ -91,6 +92,8 @@ const AboutMe = () => {
 
       {/* BACGROUND TITLE */}
       <SectionTitle title="About Me." fontSize={21} vertical />
+      {/* Loader */}
+      <Loader />
     </div>
   );
 };

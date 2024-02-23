@@ -15,7 +15,7 @@ const Slide: React.FC<SlideProps> = ({
   const position = 100 * (sectionNumber - selectedSection);
 
   const sectionStyle = {
-    top: `${position}vh`,
+    top: `calc(var(--vh, 1vh) * ${position})`,
   };
 
   return (

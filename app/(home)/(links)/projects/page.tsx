@@ -1,6 +1,7 @@
 import styles from "./ProjectsPage.module.scss";
 
 import Button from "@/components/Button";
+import Loader from "@/components/Loader";
 import SectionTitle from "@/components/SectionTitle";
 import { projectList } from "@/datas/projectList";
 import ProjectImage from "./components/projectImage";
@@ -46,6 +47,8 @@ const ProjectsPage = () => {
 
       {/* BACGROUND TITLE */}
       <SectionTitle title="Projects." fontSize={24} vertical />
+      {/* Loader */}
+      <Loader />
     </div>
   );
 };

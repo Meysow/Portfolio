@@ -20,7 +20,7 @@
     // opacity: var(--opacity);
 
     img {
-      max-height: 60vh;
+      max-height: calc(var(--vh, 1vh) * 60);
       width: auto;
       transform: app.$image-slide-in;
       transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);

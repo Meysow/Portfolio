@@ -22,7 +22,7 @@
     padding-top: 2.4rem;
 
     @include app.smallScreen() {
-      height: 45vh;
+      height: calc(var(--vh, 1vh) * 45);
       img {
         height: 100%;
         width: auto;

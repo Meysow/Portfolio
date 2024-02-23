@@ -1,4 +1,8 @@
+"use client";
+
 import Button from "@/components/Button";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import style from "./ContactForm.module.scss";
 
@@ -9,6 +13,8 @@ type FormData = {
 };
 
 const ContactForm: React.FC = () => {
+  const [feedback, setFeedback] = useState<String>("");
+  const form = useRef<HTMLFormElement>(null);
   const {
     register,
     handleSubmit,
@@ -16,29 +22,40 @@ const ContactForm: React.FC = () => {
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  const sendEmail = async (data: FormData) => {
+    // Environment variables are strings
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY!;
 
-      if (response.ok) {
-        reset();
-        alert("Message sent successfully!");
-      } else {
-        throw new Error("Failed to send message");
-      }
-    } catch (error) {
-      alert("An error occurred. Please try again.");
+    // Runtime checks here to ensure they're not undefined
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Email service configuration is missing!");
+      return;
     }
+
+    // Reset feedback
+    setFeedback("");
+
+    emailjs
+      .sendForm(serviceId, templateId, form.current!, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!", data);
+          setFeedback("Your message has been sent successfully.");
+          reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          setFeedback("Something went wrong...");
+        }
+      );
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+    <form className={style.form} onSubmit={handleSubmit(sendEmail)} ref={form}>
       <div className={style.input_data}>
         <input type="text" {...register("name", { required: true })} required />
         <div className={style.underline} />
@@ -68,7 +85,8 @@ const ContactForm: React.FC = () => {
         {errors.message && <span className={style.error}>error</span>}
       </div>
 
-      <div className={style.input_data}>
+      <div className={style.buttonWrapper}>
+        {feedback && <span className={style.feedback}>{feedback}</span>}
         <Button type="submit">Send</Button>
       </div>
     </form>

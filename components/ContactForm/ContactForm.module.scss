@@ -103,3 +103,14 @@
   font-size: 1.1rem;
   color: var(--color-highlight);
 }
+
+.buttonWrapper {
+  position: relative;
+
+  .feedback {
+    position: absolute;
+    top: -1.6rem;
+    font-size: 1.4rem;
+    color: var(--color-secondary);
+  }
+}
