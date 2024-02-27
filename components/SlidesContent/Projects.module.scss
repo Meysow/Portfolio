@@ -26,14 +26,14 @@
     --opacity: 0.99;
     opacity: var(--opacity);
     transition: 0.9s;
-    max-height: calc(var(--vh, 1vh) * 52);
+    height: calc(var(--vh, 1vh) * 50);
+    max-height: calc(var(--vh, 1vh) * 57);
     display: flex;
     justify-content: center;
 
     img {
       max-height: 100%;
-      height: auto;
-      width: 100%;
+      width: auto;
       transform: app.$image-slide-in;
       box-shadow: -1px 14px 31px 10px rgba(0, 0, 0, 0.62);
       border-radius: 0.6rem;
