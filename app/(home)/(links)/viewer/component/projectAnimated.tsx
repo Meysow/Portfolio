@@ -1,4 +1,4 @@
-import amazona from "@/public/assets/Amazona large.png";
+import AscentGear from "@/public/assets/AscentGear Full.png";
 import Image from "next/image";
 import styles from "./ProjectAnimated.module.scss";
 
@@ -12,13 +12,13 @@ const ProjectAnimated = ({ isActive }: Proptypes) => {
     <div className={classActive}>
       <div className={styles.illustration}>
         <Image
-          src={amazona}
-          alt="Illustration of Amazona Project"
+          src={AscentGear}
+          alt="Illustration of AscentGear Project"
           placeholder="blur"
           className={styles.cover}
         />
 
-        <div className={styles.previews}>
+        {/* <div className={styles.previews}>
           <div className={styles.previewImage}>
             <img src="https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg" />
           </div>
@@ -32,7 +32,7 @@ const ProjectAnimated = ({ isActive }: Proptypes) => {
           <div className={styles.previewImage}>
             <img src="https://d31fr2pwly4c4s.cloudfront.net/8/6/c/1080632_0_landscape-photography_400.jpg" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

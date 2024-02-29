@@ -18,7 +18,7 @@ const ViewerPage = () => {
               <span className={styles.icon}>&gt;</span>
               <span className={styles.icon}>_</span>
               <p className={styles.text}>
-                From Amazona to Unique Digital Experiences:{" "}
+                From AscentGear to Unique Digital Experiences:{" "}
               </p>
               <p className={styles.textTwo}>Discover My Projects.</p>
               {/* <p className={style.textThree}></p> */}

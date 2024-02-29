@@ -1,4 +1,4 @@
-import Amazona from "@/public/assets/projects/Amazona.png";
+import AscentGear from "@/public/assets/projects/AscentGear.png";
 import InfoCrypto from "@/public/assets/projects/InfoCrypto.png";
 import MediumClone from "@/public/assets/projects/Medium.png";
 import SocialPro from "@/public/assets/projects/SocialPro.png";
@@ -17,7 +17,7 @@ export type projectType = {
 export const projectList: projectType[] = [
   {
     id: 19,
-    cover: Amazona,
+    cover: AscentGear,
     tags: [
       "#TS",
       "#responsive",
@@ -27,11 +27,11 @@ export const projectList: projectType[] = [
       "#Mongoose",
       "#SASS",
     ],
-    name: "Amazona Next",
+    name: "AscentGear Next",
     blabla:
-      "In this project, I work with Next.js, Typescript, MongoDB and Mongoose to create a full stack E-Commerce type Application. This application is really complete, with authentification system, and permits the user to create/manage/delete a cart, to order, and even to pay with the Paypal API. Add reviews, give a note to products. Admin Users have access to the Admin Dashboard. They can create, update, delete products/users, Upload images with cloudinary.",
-    demo: "http://amazona-next-five.vercel.app",
-    git: "https://github.com/Meysow/Amazona-Next",
+      "In this project, I leveraged the powerful combination of Next.js and TypeScript to develop AscentGear, a full-featured E-Commerce application. The backend is built on MongoDB with Mongoose for seamless data management, ensuring performance and scalability. This application stands out for its authentication system, allowing users to seamlessly create, manage, and delete shopping carts, place orders, and securely complete transactions via PayPal API integration. Furthermore, the platform enriches the shopping experience by enabling users to post reviews and rate products, enhancing community engagement and trust. For administrative ease, a dedicated Admin Dashboard is incorporated, providing administrators with the tools to manage product and user databases, as well as upload images directly through Cloudinary.",
+    demo: "https://ascent-gear.vercel.app/",
+    git: "https://github.com/Meysow/AscentGear",
   },
   {
     id: 18,
@@ -39,7 +39,7 @@ export const projectList: projectType[] = [
     tags: ["#JS", "#responsive", "#Next", "#MongoDB", "#Express", "#Tailwind"],
     name: "Social Network",
     blabla:
-      "In this project, I worked with Next.js, MongoDB and  Tailwind to create a Social Network type Application. This application implement a authentification system, and permits the user to create/manage/delete a Post with text and image.",
+      "In this project, I used the synergy of Next.js, MongoDB, and Tailwind CSS to engineer Social Network application. This platform is designed with a responsive interface, enabling users to engage in an online community environment effortlessly. At its core, the application features a robust authentication system, empowering users to securely create, manage, and delete posts. Each post supports both text and image content, allowing for rich, expressive communication among users.",
     demo: "https://social-media-pro.vercel.app/",
     git: "https://github.com/Meysow/Social-Media-Pro",
   },
@@ -49,7 +49,7 @@ export const projectList: projectType[] = [
     tags: ["#TS", "#responsive", "#Next", "#Sanity", "#Tailwind"],
     name: "Medium Clone",
     blabla:
-      "In this project, I work with Next.js, Typescript, Tailwind and Sanity to implement a Blog type Application.",
+      "In this initiative, I embraced the powerful blend of Next.js, TypeScript, Tailwind CSS, and Sanity to create a clone of Medium. Leveraging the capabilities of Sanity for content management, the application offers an intuitive interface for creating, managing, and displaying blog posts with ease. Tailored with Tailwind CSS, the design is not only responsive but also aesthetically pleasing, ensuring a seamless reading and writing experience across all devices.",
     demo: "http://medium-clone-kappa.vercel.app",
     git: "https://github.com/Meysow/Medium-Clone",
   },
@@ -59,7 +59,7 @@ export const projectList: projectType[] = [
     tags: ["#JS", "#responsive", "#React", "#SASS"],
     name: "InfoCrypto",
     blabla:
-      "In this project, I work with React to create an interactive App that gives various informations about the biggest Crypto-Currencies. I implemented a chart with live data of each Currencies. It also delivers news related to the cryptocurrencies with a filter system.",
+      "In the InfoCrypto project, I used the dynamic capabilities of React alongside SASS to develop an interactive application dedicated to cryptocurrency enthusiasts. This application stands as a comprehensive resource, providing detailed insights into the world's leading cryptocurrencies through engaging, real-time data visualizations and charts. Central to this application is its live data feature, which tracks the performance of major cryptocurrencies, offering users up-to-the-minute information on market trends. Complementing this, the application features a robust news aggregation service, delivering the latest cryptocurrency-related news. A sophisticated filter system enhances user experience by allowing for personalized news feeds based on specific cryptocurrencies or topics of interest.",
     demo: "https://meysow.github.io/Info-Crypto/",
     git: "https://github.com/Meysow/Info-Crypto",
   },
