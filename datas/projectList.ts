@@ -1,7 +1,7 @@
 import AscentGear from "@/public/assets/projects/AscentGear.png";
 import InfoCrypto from "@/public/assets/projects/InfoCrypto.png";
 import MediumClone from "@/public/assets/projects/Medium.png";
-import SocialPro from "@/public/assets/projects/SocialPro.png";
+import MosaicMind from "@/public/assets/projects/MosaicMind.png";
 import { StaticImageData } from "next/image";
 
 export type projectType = {
@@ -17,6 +17,16 @@ export type projectType = {
 export const projectList: projectType[] = [
   {
     id: 19,
+    cover: MosaicMind,
+    tags: ["#TS", "#responsive", "#React", "#Tailwind", "#Appwrite"],
+    name: "Social Network",
+    blabla:
+      "MosaicMind is a sleek web application built with React 18.2.0, showcasing innovative UI/UX design. MosaicMind showcases efficient server state management with '@tanstack/react-query,' seamless form handling through 'react-hook-form,' and stylish, responsive designs with 'tailwindcss.' Developed using modern tools like Vite for swift builds, 'eslint' for ensuring code quality, and Appwrite for backend services, this project stands out as a fully functional full-stack social network.",
+    demo: "https://mosaic-mind.vercel.app",
+    git: "https://github.com/Meysow/MosaicMind",
+  },
+  {
+    id: 18,
     cover: AscentGear,
     tags: [
       "#TS",
@@ -33,16 +43,7 @@ export const projectList: projectType[] = [
     demo: "https://ascent-gear.vercel.app/",
     git: "https://github.com/Meysow/AscentGear",
   },
-  {
-    id: 18,
-    cover: SocialPro,
-    tags: ["#JS", "#responsive", "#Next", "#MongoDB", "#Express", "#Tailwind"],
-    name: "Social Network",
-    blabla:
-      "In this project, I used the synergy of Next.js, MongoDB, and Tailwind CSS to engineer Social Network application. This platform is designed with a responsive interface, enabling users to engage in an online community environment effortlessly. At its core, the application features a robust authentication system, empowering users to securely create, manage, and delete posts. Each post supports both text and image content, allowing for rich, expressive communication among users.",
-    demo: "https://social-media-pro.vercel.app/",
-    git: "https://github.com/Meysow/Social-Media-Pro",
-  },
+
   {
     id: 17,
     cover: MediumClone,
