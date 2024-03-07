@@ -17,8 +17,8 @@
     outline: none;
     border: none;
     // test
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: none !important;
+    -webkit-appearance: none !important;
   }
   .button:hover {
     color: rgba(var(--color-secondary-rgb), 0.9);
