@@ -24,7 +24,7 @@ const PageSelector = ({
 
   const getChangeButtons = () => {
     return Array.from({ length: numberOfSections }, (_, i) => (
-      <div
+      <button
         className={isActive(i + 1)}
         onClick={() => handleSectionChange(i + 1)}
         key={i}

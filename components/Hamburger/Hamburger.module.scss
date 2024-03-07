@@ -24,6 +24,8 @@ $span-color: var(--color-text);
   cursor: pointer;
   background: transparent;
   border: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .btn span {

@@ -1,31 +1,4 @@
 @use "./abstracts/normalize.scss";
-// TODO: a garder ? =>
-// @use "@/styles/abstracts/variables.scss";
-
-// color test 6699cc cc9966
-
-// TODO LIST //
-/********************* 
-- Placeholder / Content
-- Hamburger + Modal
-- Scroll down indicator
-- Page Selector
-- Animations IN / OUT
-- Background Image
-
-- Faire le tri dans les fonts !!!
-- Faire le tri sur les images dans le folder assets !
-
-
-
-++ Ajuster le background / background Image:
-  - je dispose de plusieurs solutions:
-    - je peux mettre un background-color: rgba(var(--color-dark-rgb), 1) dans .app sur cette page ou bien dans .backGroundImage sur layout.module.scss
-
-- Decider ou placer le scroll inaicator + reflechir a faire un truc un peu plus quali
-
-- corriger '--font-fira: 'Metrophobic', sans-serif;'
-*********************/
 
 // Global Style //
 

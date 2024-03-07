@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import "@/styles/global.scss";
+import "@/styles/globals.scss";
 import type { Metadata, Viewport } from "next";
 import {
   Montserrat_Alternates,
