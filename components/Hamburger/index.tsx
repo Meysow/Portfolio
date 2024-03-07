@@ -13,24 +13,24 @@ const Hamburger = () => {
   return (
     <>
       <div className={styles.hamburger}>
-        <button
+        <div
           className={`${styles.btn} ${isActive}`}
           onClick={() => setActive((prev) => !prev)}
         >
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </div>
       </div>
       <div className={`${styles.modal} ${isActive}`}>
-        <button
+        <div
           className={`${styles.btn} ${isActive}`}
           onClick={() => setActive((prev) => !prev)}
         >
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </div>
         <Link
           className={styles.link}
           href="/"
