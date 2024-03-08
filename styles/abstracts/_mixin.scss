@@ -95,6 +95,34 @@
         margin-bottom: 0.6rem;
       }
     }
+
+    .title {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.42s cubic-bezier(0.43, 0.18, 0.45, 1) 0.28s;
+    }
+
+    .icon {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.45s cubic-bezier(0.43, 0.18, 0.45, 1) 0.3s;
+    }
+    .text {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.48s cubic-bezier(0.43, 0.18, 0.45, 1) 0.32s;
+    }
+    .textTwo {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.54s cubic-bezier(0.43, 0.18, 0.45, 1) 0.36s;
+    }
+    .textThree {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.6s cubic-bezier(0.43, 0.18, 0.45, 1) 0.4s;
+    }
+
+    button,
+    a {
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.66s cubic-bezier(0.43, 0.18, 0.45, 1) 0.44s;
+    }
   }
 }
 
@@ -102,31 +130,25 @@
 
 @mixin activeStyle {
   .title {
-    animation: slide-in-text-one 0.7s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
 
   .icon {
-    animation: fadeInSpan 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
   .text {
-    animation: slide-in-text-one 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
   .textTwo {
-    animation: slide-in-text-one 0.9s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
   .textThree {
-    animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
 
   button,
   a {
-    animation: slide-in-text-one 1.1s cubic-bezier(0.43, 0.18, 0.45, 1);
-    animation-fill-mode: forwards;
+    transform: translate3d(0, 0, 0);
   }
 }
 

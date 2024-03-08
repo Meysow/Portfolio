@@ -13,13 +13,12 @@
       margin-top: 2rem;
       text-shadow: none;
       font-family: var(--font-button), monospace;
+      transform: translate3d(-120%, 0, 0);
+      transition: transform 0.66s cubic-bezier(0.43, 0.18, 0.45, 1) 0.44s;
     }
   }
 
   .portrait {
-    // --opacity: 0.83;
-    // opacity: var(--opacity);
-
     img {
       max-height: calc(var(--vh, 1vh) * 60);
       width: auto;
@@ -39,8 +38,7 @@
     @include app.activeStyle;
     .portfolio {
       --opacity: 0.99;
-      animation: slide-in-text-one 1s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation-fill-mode: forwards;
+      transform: translate3d(0, 0, 0);
     }
     .portrait {
       img {
