@@ -41,27 +41,27 @@ $span-color: var(--color-text);
   margin-top: $spacing;
 }
 
-.active span:nth-child(1) {
+.modalOpen span:nth-child(1) {
   animation: ease 0.7s top forwards;
 }
 
-.notActive span:nth-child(1) {
+.modalClosed span:nth-child(1) {
   animation: ease 0.7s top-2 forwards;
 }
 
-.active span:nth-child(2) {
+.modalOpen span:nth-child(2) {
   animation: ease 0.7s scaled forwards;
 }
 
-.notActive span:nth-child(2) {
+.modalClosed span:nth-child(2) {
   animation: ease 0.7s scaled-2 forwards;
 }
 
-.active span:nth-child(3) {
+.modalOpen span:nth-child(3) {
   animation: ease 0.7s bottom forwards;
 }
 
-.notActive span:nth-child(3) {
+.modalClosed span:nth-child(3) {
   animation: ease 0.7s bottom-2 forwards;
 }
 
@@ -159,11 +159,11 @@ $span-color: var(--color-text);
   transition: opacity 0.3s, clip-path 0.3s;
   z-index: 1001;
 
-  &.notActive {
+  &.modalClosed {
     display: none;
     visibility: hidden;
   }
-  &.active {
+  &.modalOpen {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,6 +215,11 @@ $span-color: var(--color-text);
       -o-transition: all 0.15s ease-in-out;
     }
     &:hover::after {
+      width: 100%;
+    }
+  }
+  .link.activeLink {
+    &::after {
       width: 100%;
     }
   }
