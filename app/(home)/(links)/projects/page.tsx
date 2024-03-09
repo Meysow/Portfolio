@@ -40,7 +40,7 @@ const ProjectsPage = () => {
             {/* Project 3 */}
           </div>
           <div className={styles.buttonWrapper}>
-            <Button href="/ThibaultDilmanResume.pdf">Download My CV</Button>
+            <Button href="/ThibaultDilmanResume.pdf">Download my C.V.</Button>
           </div>
         </div>
       </section>

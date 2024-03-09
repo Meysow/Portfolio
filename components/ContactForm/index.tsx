@@ -44,7 +44,7 @@ const ContactForm: React.FC = () => {
       .then(
         () => {
           console.log("SUCCESS!", data);
-          setFeedback("Your message has been sent successfully.");
+          setFeedback("Your message has been sent!");
           reset();
         },
         (error) => {

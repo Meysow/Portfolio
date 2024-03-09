@@ -15,9 +15,8 @@ const AboutMe = () => {
           <div className={styles.aboutContainer}>
             <h2 className={styles.smallTitle}>Welcome to my portfolio!</h2>
             <p className={styles.paragraph}>
-              I&apos;m an aspiring junior web developer, eagerly stepping into
-              the tech world after a transformative career change from Market
-              Finance.
+              I&apos;m an aspiring web developer, eagerly stepping into the tech
+              world after a transformative career change from Market Finance.
               <br /> My journey into web development is driven by a deep-seated
               passion for technology and a keen analytical mind that thrives on
               solving complex problems.
@@ -40,11 +39,11 @@ const AboutMe = () => {
                   Passion for Problem-Solving
                 </h2>
                 <p className={styles.paragraph}>
-                  My love for problem-solving isn&apos;t confined to the digital
-                  world. As an avid climber, I spend hours solving boulder
-                  problems, each climb a puzzle that challenges the mind and
-                  body in equal measure. Similarly, chess captivates me with its
-                  strategic depth and infinite possibilities, mirroring the
+                  My enthusiasm for problem-solving isn&apos;t confined to the
+                  digital world. As an avid climber, I spend hours solving
+                  boulder problems, each climb a puzzle that challenges the mind
+                  and body in equal measure. Similarly, chess captivates me with
+                  its strategic depth and infinite possibilities, mirroring the
                   complexities I navigate while coding.
                   <br /> These hobbies are not just pastimes, they are
                   extensions of my analytical approach to life and work,
@@ -60,7 +59,7 @@ const AboutMe = () => {
               outdoors. Whether it&apos;s climbing, hiking, or engaging in any
               sport that gets my heart racing, I believe in the power of nature
               to rejuvenate and inspire.
-              <br /> This love for adventure and physical activity is a
+              <br /> This passion for adventure and physical activity is a
               testament to my belief in a well-rounded lifestyle, where keeping
               physically active is as important as mental exercises. It&apos;s
               this blend of outdoor activity and indoor problem-solving that

@@ -28,7 +28,7 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           href="/ThibaultDilmanResume.pdf"
           download
         >
-          Download My C.V.
+          Download my C.V.
         </Button>
       </div>
       <div className={style.skills}>
