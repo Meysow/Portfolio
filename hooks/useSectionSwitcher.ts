@@ -23,53 +23,32 @@ const useSectionSwitcher = ({
   delayBetweenSectionChange,
 }: UseSectionSwitcherProps): UseSectionSwitcherReturn => {
   const [selectedSection, setSelectedSection] = useState<number>(1);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const lastScrollWheelTimestamp = useRef<number>(0);
-  const lastScrollWheelDelta = useRef<number>(0);
-  const allowScrollRef = useRef<boolean>(true);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
-  const minScrollWheelInterval = 600; // Minimum milliseconds between scrolls to consider as human scroll
-  const animSpeed = delayBetweenSectionChange; // Use the provided delay for animation speed as well
+  const lastInteractionRef = useRef<number>(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  const handleSectionChange = useCallback(
-    (increment: boolean) => {
-      if (!allowScrollRef.current) return;
-
-      allowScrollRef.current = false;
-      setTimeout(() => {
-        allowScrollRef.current = true;
-      }, animSpeed);
-
-      setSelectedSection((currentSection) => {
-        const nextSection = increment
-          ? Math.min(currentSection + 1, numberOfSections)
-          : Math.max(currentSection - 1, 1);
-        return nextSection;
+  const changeSection = useCallback(
+    (increment: boolean): void => {
+      setSelectedSection((prevSection) => {
+        let newSection = increment ? prevSection + 1 : prevSection - 1;
+        newSection = Math.max(1, Math.min(newSection, numberOfSections));
+        return newSection;
       });
     },
-    [numberOfSections, animSpeed]
+    [numberOfSections]
   );
 
-  const handleScroll = useCallback(
-    (e: WheelEvent) => {
-      const now = Date.now();
-      const rapidSuccession =
-        now - lastScrollWheelTimestamp.current < minScrollWheelInterval;
-      const otherDirection = lastScrollWheelDelta.current > 0 !== e.deltaY > 0;
-      const speedDecrease =
-        Math.abs(e.deltaY) < Math.abs(lastScrollWheelDelta.current);
-      const isHuman = otherDirection || !rapidSuccession || speedDecrease;
-
-      if (isHuman && !allowScrollRef.current) return;
+  const handleOnScroll = useCallback(
+    (e: WheelEvent): void => {
+      const now = new Date().getTime();
+      if (now - lastInteractionRef.current < delayBetweenSectionChange) return;
+      lastInteractionRef.current = now;
 
       const scrollDown = e.deltaY > 0;
-      if (isHuman) handleSectionChange(scrollDown);
-
-      lastScrollWheelTimestamp.current = now;
-      lastScrollWheelDelta.current = e.deltaY;
+      changeSection(scrollDown);
     },
-    [handleSectionChange, minScrollWheelInterval]
+    [changeSection, delayBetweenSectionChange]
   );
 
   const handleTouchStart = useCallback((e: TouchEvent): void => {
@@ -80,48 +59,45 @@ const useSectionSwitcher = ({
     touchEndRef.current = e.touches[0].clientY;
   }, []);
 
-  const handleTouchEnd = useCallback(() => {
+  const handleTouchEnd = useCallback((): void => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
-
     const swipeDistance = touchStartRef.current - touchEndRef.current;
-    if (Math.abs(swipeDistance) < 50) return; // Ensure significant swipe distance
+    if (
+      touchStartRef.current === null ||
+      touchEndRef.current === null ||
+      Math.abs(swipeDistance) < 50
+    )
+      return;
 
-    if (!allowScrollRef.current) return; // Check if allowed to change section
-
-    allowScrollRef.current = false;
-    setTimeout(() => {
-      allowScrollRef.current = true; // Re-enable after cool-down
-    }, delayBetweenSectionChange);
-
-    const increment = swipeDistance < 0;
-    handleSectionChange(increment);
-
+    changeSection(swipeDistance > 0);
     touchStartRef.current = null;
     touchEndRef.current = null;
-  }, [delayBetweenSectionChange, handleSectionChange]);
+  }, [changeSection]);
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
-    if (sectionElement) {
-      sectionElement.addEventListener("wheel", handleScroll, { passive: true });
-      sectionElement.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      sectionElement.addEventListener("touchmove", handleTouchMove, {
-        passive: false,
-      });
-      sectionElement.addEventListener("touchend", handleTouchEnd, {
-        passive: false,
-      });
+    if (!sectionElement) return;
 
-      return () => {
-        sectionElement.removeEventListener("wheel", handleScroll);
+    sectionElement.addEventListener("wheel", handleOnScroll, { passive: true });
+    sectionElement.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+    sectionElement.addEventListener("touchmove", handleTouchMove, {
+      passive: true,
+    });
+    sectionElement.addEventListener("touchend", handleTouchEnd, {
+      passive: false,
+    });
+
+    return () => {
+      if (sectionElement) {
+        sectionElement.removeEventListener("wheel", handleOnScroll);
         sectionElement.removeEventListener("touchstart", handleTouchStart);
         sectionElement.removeEventListener("touchmove", handleTouchMove);
         sectionElement.removeEventListener("touchend", handleTouchEnd);
-      };
-    }
-  }, [handleScroll, handleTouchStart, handleTouchMove, handleTouchEnd]);
+      }
+    };
+  }, [handleOnScroll, handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   return { selectedSection, sectionRef, setSelectedSection };
 };
