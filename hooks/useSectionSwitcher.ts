@@ -27,16 +27,27 @@ const useSectionSwitcher = ({
   const touchEndRef = useRef<number | null>(null);
   const lastInteractionRef = useRef<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const canScrollRef = useRef<boolean>(true);
 
   const changeSection = useCallback(
     (increment: boolean): void => {
+      if (!canScrollRef.current) return; // Check if a scroll action is allowed
+      canScrollRef.current = false; // Prevent further scrolls
+
+      // Change section logic
       setSelectedSection((prevSection) => {
-        let newSection = increment ? prevSection + 1 : prevSection - 1;
-        newSection = Math.max(1, Math.min(newSection, numberOfSections));
-        return newSection;
+        const nextSection = increment
+          ? Math.min(prevSection + 1, numberOfSections)
+          : Math.max(prevSection - 1, 1);
+        return nextSection;
       });
+
+      // Reset the scroll control after a delay
+      setTimeout(() => {
+        canScrollRef.current = true;
+      }, delayBetweenSectionChange);
     },
-    [numberOfSections]
+    [numberOfSections, delayBetweenSectionChange]
   );
 
   const handleOnScroll = useCallback(
