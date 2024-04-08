@@ -26,83 +26,72 @@ const useSectionSwitcher = ({
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollEventLock = useRef<boolean>(false);
+  const allowScrollRef = useRef<boolean>(true);
 
-  const changeSection = useCallback(
+  const handleSectionChange = useCallback(
     (increment: boolean) => {
-      if (scrollEventLock.current) return;
-
-      scrollEventLock.current = true;
+      if (!allowScrollRef.current) return;
+      allowScrollRef.current = false;
       setTimeout(() => {
-        scrollEventLock.current = false;
+        allowScrollRef.current = true;
       }, delayBetweenSectionChange);
 
-      setSelectedSection((prevSection) => {
+      setSelectedSection((currentSection) => {
         const nextSection = increment
-          ? Math.min(prevSection + 1, numberOfSections)
-          : Math.max(prevSection - 1, 1);
+          ? Math.min(currentSection + 1, numberOfSections)
+          : Math.max(currentSection - 1, 1);
         return nextSection;
       });
     },
     [numberOfSections, delayBetweenSectionChange]
   );
 
-  const handleOnScroll = useCallback(
+  const handleScroll = useCallback(
     (e: WheelEvent) => {
+      if (!allowScrollRef.current) return;
       const scrollDown = e.deltaY > 0;
-      changeSection(scrollDown);
+      handleSectionChange(scrollDown);
     },
-    [changeSection]
+    [handleSectionChange]
   );
 
-  const handleTouchStart = useCallback((e: TouchEvent): void => {
-    touchStartRef.current = e.touches[0].clientY;
-  }, []);
-
-  const handleTouchMove = useCallback((e: TouchEvent): void => {
-    touchEndRef.current = e.touches[0].clientY;
-  }, []);
-
-  const handleTouchEnd = useCallback((): void => {
+  const handleTouchEnd = useCallback(() => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
-    const swipeDistance = touchStartRef.current - touchEndRef.current;
-    if (
-      touchStartRef.current === null ||
-      touchEndRef.current === null ||
-      Math.abs(swipeDistance) < 50
-    )
-      return;
 
-    changeSection(swipeDistance > 0);
+    const swipeDistance = touchStartRef.current - touchEndRef.current;
+    if (Math.abs(swipeDistance) < 50) return; // Ensure significant swipe distance
+
+    if (!allowScrollRef.current) return; // Check if allowed to change section
+
+    allowScrollRef.current = false;
+    setTimeout(() => {
+      allowScrollRef.current = true; // Re-enable after cool-down
+    }, delayBetweenSectionChange);
+
+    // Directly change section based on swipe direction
+    const increment = swipeDistance < 0;
+    handleSectionChange(increment);
+
     touchStartRef.current = null;
     touchEndRef.current = null;
-  }, [changeSection]);
+  }, [delayBetweenSectionChange, handleSectionChange]);
 
-  //Setting all events as passive
   useEffect(() => {
     const sectionElement = sectionRef.current;
     if (!sectionElement) return;
 
-    sectionElement.addEventListener("wheel", handleOnScroll, { passive: true });
-    sectionElement.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
-    });
-    sectionElement.addEventListener("touchmove", handleTouchMove, {
-      passive: true,
-    });
+    sectionElement.addEventListener("wheel", handleScroll, { passive: true });
     sectionElement.addEventListener("touchend", handleTouchEnd, {
       passive: false,
     });
 
     return () => {
       if (sectionElement) {
-        sectionElement.removeEventListener("wheel", handleOnScroll);
-        sectionElement.removeEventListener("touchstart", handleTouchStart);
-        sectionElement.removeEventListener("touchmove", handleTouchMove);
+        sectionElement.removeEventListener("wheel", handleScroll);
         sectionElement.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, [handleOnScroll, handleTouchStart, handleTouchMove, handleTouchEnd]);
+  }, [handleScroll, handleTouchEnd]);
 
   return { selectedSection, sectionRef, setSelectedSection };
 };
