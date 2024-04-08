@@ -29,7 +29,7 @@ const useSectionSwitcher = ({
   const allowScrollRef = useRef<boolean>(true);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
-  const minScrollWheelInterval = 300; // Minimum milliseconds between scrolls to consider as human scroll
+  const minScrollWheelInterval = 600; // Minimum milliseconds between scrolls to consider as human scroll
   const animSpeed = delayBetweenSectionChange; // Use the provided delay for animation speed as well
 
   const handleSectionChange = useCallback(
@@ -72,6 +72,14 @@ const useSectionSwitcher = ({
     [handleSectionChange, minScrollWheelInterval]
   );
 
+  const handleTouchStart = useCallback((e: TouchEvent): void => {
+    touchStartRef.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchMove = useCallback((e: TouchEvent): void => {
+    touchEndRef.current = e.touches[0].clientY;
+  }, []);
+
   const handleTouchEnd = useCallback(() => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
 
@@ -96,16 +104,24 @@ const useSectionSwitcher = ({
     const sectionElement = sectionRef.current;
     if (sectionElement) {
       sectionElement.addEventListener("wheel", handleScroll, { passive: true });
+      sectionElement.addEventListener("touchstart", handleTouchStart, {
+        passive: false,
+      });
+      sectionElement.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
       sectionElement.addEventListener("touchend", handleTouchEnd, {
         passive: false,
       });
 
       return () => {
         sectionElement.removeEventListener("wheel", handleScroll);
+        sectionElement.removeEventListener("touchstart", handleTouchStart);
+        sectionElement.removeEventListener("touchmove", handleTouchMove);
         sectionElement.removeEventListener("touchend", handleTouchEnd);
       };
     }
-  }, [handleScroll, handleTouchEnd]);
+  }, [handleScroll, handleTouchStart, handleTouchMove, handleTouchEnd]);
 
   return { selectedSection, sectionRef, setSelectedSection };
 };
