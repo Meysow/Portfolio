@@ -6,7 +6,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { debounce } from "./debounce";
 
 interface UseSectionSwitcherProps {
   numberOfSections: number;
@@ -26,31 +25,26 @@ const useSectionSwitcher = ({
   const [selectedSection, setSelectedSection] = useState<number>(1);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
-  const lastInteractionRef = useRef<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const allowSectionChangeRef = useRef<boolean>(true);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedAllowSectionChange = useCallback(
-    debounce(() => {
-      allowSectionChangeRef.current = true;
-    }, delayBetweenSectionChange),
-    []
-  );
+  const scrollEventLock = useRef<boolean>(false);
 
   const changeSection = useCallback(
     (increment: boolean) => {
-      if (!allowSectionChangeRef.current) return;
-      allowSectionChangeRef.current = false;
-      debouncedAllowSectionChange();
+      if (scrollEventLock.current) return;
+
+      scrollEventLock.current = true;
+      setTimeout(() => {
+        scrollEventLock.current = false;
+      }, delayBetweenSectionChange);
 
       setSelectedSection((prevSection) => {
-        let newSection = increment ? prevSection + 1 : prevSection - 1;
-        newSection = Math.max(1, Math.min(newSection, numberOfSections));
-        return newSection;
+        const nextSection = increment
+          ? Math.min(prevSection + 1, numberOfSections)
+          : Math.max(prevSection - 1, 1);
+        return nextSection;
       });
     },
-    [numberOfSections, debouncedAllowSectionChange]
+    [numberOfSections, delayBetweenSectionChange]
   );
 
   const handleOnScroll = useCallback(
