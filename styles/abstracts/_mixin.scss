@@ -98,30 +98,30 @@
 
     .title {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.42s cubic-bezier(0.43, 0.18, 0.45, 1) 0.28s;
+      transition: transform 0.42s cubic-bezier(0.43, 0.18, 0.45, 1) 0.31s;
     }
 
     .icon {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.45s cubic-bezier(0.43, 0.18, 0.45, 1) 0.3s;
+      transition: transform 0.45s cubic-bezier(0.43, 0.18, 0.45, 1) 0.33s;
     }
     .text {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.48s cubic-bezier(0.43, 0.18, 0.45, 1) 0.32s;
+      transition: transform 0.48s cubic-bezier(0.43, 0.18, 0.45, 1) 0.35s;
     }
     .textTwo {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.54s cubic-bezier(0.43, 0.18, 0.45, 1) 0.36s;
+      transition: transform 0.54s cubic-bezier(0.43, 0.18, 0.45, 1) 0.39s;
     }
     .textThree {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.6s cubic-bezier(0.43, 0.18, 0.45, 1) 0.4s;
+      transition: transform 0.6s cubic-bezier(0.43, 0.18, 0.45, 1) 0.43s;
     }
 
     button,
     a {
       transform: translate3d(-120%, 0, 0);
-      transition: transform 0.63s cubic-bezier(0.43, 0.18, 0.45, 1) 0.42s;
+      transition: transform 0.63s cubic-bezier(0.43, 0.18, 0.45, 1) 0.45s;
     }
   }
 }

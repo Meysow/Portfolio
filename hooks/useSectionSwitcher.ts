@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { debounce } from "./debounce";
 
 interface UseSectionSwitcherProps {
   numberOfSections: number;
@@ -27,39 +28,37 @@ const useSectionSwitcher = ({
   const touchEndRef = useRef<number | null>(null);
   const lastInteractionRef = useRef<number>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const canScrollRef = useRef<boolean>(true);
+  const allowSectionChangeRef = useRef<boolean>(true);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedAllowSectionChange = useCallback(
+    debounce(() => {
+      allowSectionChangeRef.current = true;
+    }, delayBetweenSectionChange),
+    []
+  );
 
   const changeSection = useCallback(
-    (increment: boolean): void => {
-      if (!canScrollRef.current) return; // Check if a scroll action is allowed
-      canScrollRef.current = false; // Prevent further scrolls
+    (increment: boolean) => {
+      if (!allowSectionChangeRef.current) return;
+      allowSectionChangeRef.current = false;
+      debouncedAllowSectionChange();
 
-      // Change section logic
       setSelectedSection((prevSection) => {
-        const nextSection = increment
-          ? Math.min(prevSection + 1, numberOfSections)
-          : Math.max(prevSection - 1, 1);
-        return nextSection;
+        let newSection = increment ? prevSection + 1 : prevSection - 1;
+        newSection = Math.max(1, Math.min(newSection, numberOfSections));
+        return newSection;
       });
-
-      // Reset the scroll control after a delay
-      setTimeout(() => {
-        canScrollRef.current = true;
-      }, delayBetweenSectionChange);
     },
-    [numberOfSections, delayBetweenSectionChange]
+    [numberOfSections, debouncedAllowSectionChange]
   );
 
   const handleOnScroll = useCallback(
-    (e: WheelEvent): void => {
-      const now = new Date().getTime();
-      if (now - lastInteractionRef.current < delayBetweenSectionChange) return;
-      lastInteractionRef.current = now;
-
+    (e: WheelEvent) => {
       const scrollDown = e.deltaY > 0;
       changeSection(scrollDown);
     },
-    [changeSection, delayBetweenSectionChange]
+    [changeSection]
   );
 
   const handleTouchStart = useCallback((e: TouchEvent): void => {
@@ -85,6 +84,7 @@ const useSectionSwitcher = ({
     touchEndRef.current = null;
   }, [changeSection]);
 
+  //Setting all events as passive
   useEffect(() => {
     const sectionElement = sectionRef.current;
     if (!sectionElement) return;

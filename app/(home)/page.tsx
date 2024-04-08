@@ -19,7 +19,7 @@ import useSectionSwitcher from "@/hooks/useSectionSwitcher";
 
 const HomePage = () => {
   const { selectedSection, sectionRef, setSelectedSection } =
-    useSectionSwitcher({ numberOfSections: 5, delayBetweenSectionChange: 600 });
+    useSectionSwitcher({ numberOfSections: 5, delayBetweenSectionChange: 650 });
 
   useAdjustVH();
 
