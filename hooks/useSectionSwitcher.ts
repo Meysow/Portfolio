@@ -1,6 +1,8 @@
 import {
   Dispatch,
   SetStateAction,
+  TouchEventHandler,
+  WheelEventHandler,
   useCallback,
   useEffect,
   useRef,
@@ -14,8 +16,11 @@ interface UseSectionSwitcherProps {
 
 interface UseSectionSwitcherReturn {
   selectedSection: number;
-  sectionRef: React.RefObject<HTMLDivElement>;
   setSelectedSection: Dispatch<SetStateAction<number>>;
+  handleOnScroll: WheelEventHandler<HTMLDivElement>;
+  handleTouchStart: TouchEventHandler<HTMLDivElement>;
+  handleTouchMove: TouchEventHandler<HTMLDivElement>;
+  handleTouchEnd: TouchEventHandler<HTMLDivElement>;
 }
 
 const useSectionSwitcher = ({
@@ -23,7 +28,6 @@ const useSectionSwitcher = ({
   delayBetweenSectionChange,
 }: UseSectionSwitcherProps): UseSectionSwitcherReturn => {
   const [selectedSection, setSelectedSection] = useState<number>(1);
-  const sectionRef = useRef<HTMLDivElement>(null);
   const lastChangeTimestampRef = useRef<number>(0);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
@@ -56,8 +60,9 @@ const useSectionSwitcher = ({
     [numberOfSections, delayBetweenSectionChange]
   );
 
-  const handleOnScroll = useCallback(
-    (e: WheelEvent) => {
+  const handleOnScroll: WheelEventHandler<HTMLDivElement> = useCallback(
+    (e) => {
+      e.preventDefault();
       if (!lethargyRef.current) return; // Ensure Lethargy is initialized
       const check = lethargyRef.current.check(e);
       if (check === false) {
@@ -70,13 +75,21 @@ const useSectionSwitcher = ({
     [changeSection]
   );
 
-  const handleTouchStart = useCallback((e: TouchEvent): void => {
-    touchStartRef.current = e.touches[0].clientY;
-  }, []);
+  const handleTouchStart: TouchEventHandler<HTMLDivElement> = useCallback(
+    (e): void => {
+      e.preventDefault();
+      touchStartRef.current = e.touches[0].clientY;
+    },
+    []
+  );
 
-  const handleTouchMove = useCallback((e: TouchEvent): void => {
-    touchEndRef.current = e.touches[0].clientY;
-  }, []);
+  const handleTouchMove: TouchEventHandler<HTMLDivElement> = useCallback(
+    (e): void => {
+      e.preventDefault();
+      touchEndRef.current = e.touches[0].clientY;
+    },
+    []
+  );
 
   const handleTouchEnd = useCallback((): void => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
@@ -88,34 +101,14 @@ const useSectionSwitcher = ({
     touchEndRef.current = null;
   }, [changeSection]);
 
-  useEffect(() => {
-    const sectionElement = sectionRef.current;
-    if (!sectionElement) return;
-
-    sectionElement.addEventListener("wheel", handleOnScroll, {
-      passive: false,
-    });
-    sectionElement.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
-    });
-    sectionElement.addEventListener("touchmove", handleTouchMove, {
-      passive: true,
-    });
-    sectionElement.addEventListener("touchend", handleTouchEnd, {
-      passive: false,
-    });
-
-    return () => {
-      if (sectionElement) {
-        sectionElement.removeEventListener("wheel", handleOnScroll);
-        sectionElement.removeEventListener("touchstart", handleTouchStart);
-        sectionElement.removeEventListener("touchmove", handleTouchMove);
-        sectionElement.removeEventListener("touchend", handleTouchEnd);
-      }
-    };
-  }, [handleOnScroll, handleTouchStart, handleTouchMove, handleTouchEnd]);
-
-  return { selectedSection, sectionRef, setSelectedSection };
+  return {
+    selectedSection,
+    setSelectedSection,
+    handleOnScroll,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  };
 };
 
 export default useSectionSwitcher;

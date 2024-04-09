@@ -18,16 +18,28 @@ import useAdjustVH from "@/hooks/useAdjustVH";
 import useSectionSwitcher from "@/hooks/useSectionSwitcher";
 
 const HomePage = () => {
-  const { selectedSection, sectionRef, setSelectedSection } =
-    useSectionSwitcher({
-      numberOfSections: 5,
-      delayBetweenSectionChange: 700,
-    });
+  const {
+    selectedSection,
+    setSelectedSection,
+    handleOnScroll,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useSectionSwitcher({
+    numberOfSections: 5,
+    delayBetweenSectionChange: 700,
+  });
 
   useAdjustVH();
 
   return (
-    <div className={style.layout} ref={sectionRef}>
+    <div
+      className={style.layout}
+      onWheel={handleOnScroll}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className={style.main}>
         <Slide selectedSection={selectedSection} sectionNumber={1}>
           <Hero selectedSection={selectedSection} sectionNumber={1} />
