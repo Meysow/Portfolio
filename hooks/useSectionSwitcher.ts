@@ -25,51 +25,34 @@ const useSectionSwitcher = ({
   const [selectedSection, setSelectedSection] = useState<number>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const lastScrollWheelTimestamp = useRef<number>(0);
-  const lastScrollWheelDelta = useRef<number>(0);
-  const animating = useRef<boolean>(false);
-
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
 
+  const isCooldownActive = useRef<boolean>(false);
+
   const changeSection = useCallback(
     (increment: boolean): void => {
-      if (animating.current) return;
+      if (isCooldownActive.current) return;
 
-      animating.current = true;
+      isCooldownActive.current = true;
       setSelectedSection((prevSection) => {
         let newSection = increment ? prevSection + 1 : prevSection - 1;
         newSection = Math.max(1, Math.min(newSection, numberOfSections));
-
-        setTimeout(() => {
-          animating.current = false; // Reset animation lock after delay
-        }, delayBetweenSectionChange);
-
         return newSection;
       });
+
+      setTimeout(() => {
+        isCooldownActive.current = false;
+      }, delayBetweenSectionChange);
     },
     [numberOfSections, delayBetweenSectionChange]
   );
 
   const handleOnScroll = useCallback(
-    (e: WheelEvent): void => {
-      const now = Date.now();
-      const minScrollWheelInterval = 300; // Minimum milliseconds between scrolls
-      const rapidSuccession =
-        now - lastScrollWheelTimestamp.current < minScrollWheelInterval;
-      const otherDirection = lastScrollWheelDelta.current > 0 !== e.deltaY > 0;
-      const speedDecrease =
-        Math.abs(e.deltaY) < Math.abs(lastScrollWheelDelta.current);
-
-      const isHuman = otherDirection || !rapidSuccession || !speedDecrease;
-
-      if (isHuman) {
-        const scrollDown = e.deltaY > 0;
-        changeSection(scrollDown);
-      }
-
-      lastScrollWheelTimestamp.current = now;
-      lastScrollWheelDelta.current = e.deltaY;
+    (e: WheelEvent) => {
+      e.preventDefault();
+      const scrollDown = e.deltaY > 0;
+      changeSection(scrollDown);
     },
     [changeSection]
   );
@@ -103,10 +86,10 @@ const useSectionSwitcher = ({
 
     sectionElement.addEventListener("wheel", handleOnScroll, { passive: true });
     sectionElement.addEventListener("touchstart", handleTouchStart, {
-      passive: true,
+      passive: false,
     });
     sectionElement.addEventListener("touchmove", handleTouchMove, {
-      passive: true,
+      passive: false,
     });
     sectionElement.addEventListener("touchend", handleTouchEnd, {
       passive: false,
