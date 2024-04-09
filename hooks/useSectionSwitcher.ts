@@ -24,34 +24,47 @@ const useSectionSwitcher = ({
 }: UseSectionSwitcherProps): UseSectionSwitcherReturn => {
   const [selectedSection, setSelectedSection] = useState<number>(1);
   const sectionRef = useRef<HTMLDivElement>(null);
-
+  const lastChangeTimestampRef = useRef<number>(0);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
 
-  const isCooldownActive = useRef<boolean>(false);
+  // Using useRef to ensure Lethargy is only initialized once and compatible with SSR.
+  const lethargyRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Dynamic import of Lethargy inside useEffect to ensure it's done on the client-side.
+    import("lethargy").then((LethargyModule) => {
+      lethargyRef.current = new LethargyModule.Lethargy();
+    });
+  }, []);
 
   const changeSection = useCallback(
-    (increment: boolean): void => {
-      if (isCooldownActive.current) return;
+    (increment: boolean) => {
+      const now = Date.now();
+      if (now - lastChangeTimestampRef.current < delayBetweenSectionChange) {
+        // It's too soon to change sections again.
+        return;
+      }
 
-      isCooldownActive.current = true;
-      setSelectedSection((prevSection) => {
-        let newSection = increment ? prevSection + 1 : prevSection - 1;
-        newSection = Math.max(1, Math.min(newSection, numberOfSections));
-        return newSection;
+      lastChangeTimestampRef.current = now;
+
+      setSelectedSection((prev) => {
+        let next = increment ? prev + 1 : prev - 1;
+        return Math.max(1, Math.min(next, numberOfSections));
       });
-
-      setTimeout(() => {
-        isCooldownActive.current = false;
-      }, delayBetweenSectionChange);
     },
     [numberOfSections, delayBetweenSectionChange]
   );
 
   const handleOnScroll = useCallback(
     (e: WheelEvent) => {
-      e.preventDefault();
-      const scrollDown = e.deltaY > 0;
+      if (!lethargyRef.current) return; // Ensure Lethargy is initialized
+      const check = lethargyRef.current.check(e);
+      if (check === false) {
+        // It's likely inertia, so do nothing
+        return;
+      }
+      const scrollDown = check < 0;
       changeSection(scrollDown);
     },
     [changeSection]
@@ -68,12 +81,7 @@ const useSectionSwitcher = ({
   const handleTouchEnd = useCallback((): void => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
     const swipeDistance = touchStartRef.current - touchEndRef.current;
-    if (
-      touchStartRef.current === null ||
-      touchEndRef.current === null ||
-      Math.abs(swipeDistance) < 50
-    )
-      return;
+    if (Math.abs(swipeDistance) < 50) return;
 
     changeSection(swipeDistance > 0);
     touchStartRef.current = null;
@@ -84,12 +92,14 @@ const useSectionSwitcher = ({
     const sectionElement = sectionRef.current;
     if (!sectionElement) return;
 
-    sectionElement.addEventListener("wheel", handleOnScroll, { passive: true });
-    sectionElement.addEventListener("touchstart", handleTouchStart, {
+    sectionElement.addEventListener("wheel", handleOnScroll, {
       passive: false,
     });
+    sectionElement.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
     sectionElement.addEventListener("touchmove", handleTouchMove, {
-      passive: false,
+      passive: true,
     });
     sectionElement.addEventListener("touchend", handleTouchEnd, {
       passive: false,

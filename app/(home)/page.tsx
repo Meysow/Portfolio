@@ -21,7 +21,7 @@ const HomePage = () => {
   const { selectedSection, sectionRef, setSelectedSection } =
     useSectionSwitcher({
       numberOfSections: 5,
-      delayBetweenSectionChange: 1000,
+      delayBetweenSectionChange: 700,
     });
 
   useAdjustVH();
