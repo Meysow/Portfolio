@@ -76,6 +76,9 @@
           margin-bottom: 2.8rem;
           margin-inline: auto;
         }
+        .climbingPic{
+          height: unset;
+        }
 
         .flexWrapper {
           @include app.largeScreen() {
