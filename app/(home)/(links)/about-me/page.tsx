@@ -51,7 +51,7 @@ const AboutMe = () => {
                   challenges.
                 </p>
               </div>
-              <Image src={climbing} alt="climbing..." />
+              <Image src={climbing} alt="climbing..." className={styles.climbingPic} />
             </div>
             <h2 className={styles.smallTitle}>Embracing the Outdoors</h2>
             <p className={styles.paragraph}>
