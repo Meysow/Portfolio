@@ -50,6 +50,7 @@ const AboutMe = () => {
                   src={climbing}
                   alt='climbing...'
                   className={styles.climbingPic}
+                  sizes='(min-width: 1200px) 30vw, (min-width: 900px) 45vw, 90vw'
                 />
               </div>
             </div>
@@ -66,6 +67,7 @@ const AboutMe = () => {
             <Image
               src={outdoor}
               alt='Outdoor picture of me.'
+              sizes='(min-width: 1200px) 900px, (min-width: 900px) 700px, 90vw'
             />
             <h2 className={styles.smallTitle}>Web Development: A New Challenge</h2>
             <p className={styles.paragraph}>
