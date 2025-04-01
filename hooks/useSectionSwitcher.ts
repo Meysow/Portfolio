@@ -7,7 +7,7 @@ import {
   useEffect,
   useRef,
   useState,
-} from "react";
+} from 'react';
 
 interface UseSectionSwitcherProps {
   numberOfSections: number;
@@ -37,7 +37,7 @@ const useSectionSwitcher = ({
 
   useEffect(() => {
     // Dynamic import of Lethargy inside useEffect to ensure it's done on the client-side.
-    import("lethargy").then((LethargyModule) => {
+    import('lethargy').then((LethargyModule) => {
       lethargyRef.current = new LethargyModule.Lethargy();
     });
   }, []);
@@ -62,7 +62,6 @@ const useSectionSwitcher = ({
 
   const handleOnScroll: WheelEventHandler<HTMLDivElement> = useCallback(
     (e) => {
-      e.preventDefault();
       if (!lethargyRef.current) return; // Ensure Lethargy is initialized
       const check = lethargyRef.current.check(e);
       if (check === false) {
@@ -75,21 +74,13 @@ const useSectionSwitcher = ({
     [changeSection]
   );
 
-  const handleTouchStart: TouchEventHandler<HTMLDivElement> = useCallback(
-    (e): void => {
-      e.preventDefault();
-      touchStartRef.current = e.touches[0].clientY;
-    },
-    []
-  );
+  const handleTouchStart: TouchEventHandler<HTMLDivElement> = useCallback((e): void => {
+    touchStartRef.current = e.touches[0].clientY;
+  }, []);
 
-  const handleTouchMove: TouchEventHandler<HTMLDivElement> = useCallback(
-    (e): void => {
-      e.preventDefault();
-      touchEndRef.current = e.touches[0].clientY;
-    },
-    []
-  );
+  const handleTouchMove: TouchEventHandler<HTMLDivElement> = useCallback((e): void => {
+    touchEndRef.current = e.touches[0].clientY;
+  }, []);
 
   const handleTouchEnd = useCallback((): void => {
     if (touchStartRef.current === null || touchEndRef.current === null) return;
