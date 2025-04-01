@@ -1,8 +1,8 @@
 // import portrait from "@/public/assets/portrait final full circle v6.png";
-import portrait from "@/public/assets/test3.png";
-import Image from "next/image";
-import SectionTitle from "../SectionTitle";
-import style from "./Hero.module.scss";
+import portrait from '@/public/assets/test3.png';
+import Image from 'next/image';
+import SectionTitle from '../SectionTitle';
+import style from './Hero.module.scss';
 
 interface propTypes {
   selectedSection: number;
@@ -11,9 +11,7 @@ interface propTypes {
 
 const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
   const containerStyle =
-    selectedSection === sectionNumber
-      ? `${style.container} ${style.active}`
-      : style.container;
+    selectedSection === sectionNumber ? `${style.container} ${style.active}` : style.container;
 
   return (
     <div className={containerStyle}>
@@ -31,9 +29,17 @@ const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <p className={style.portfolio}>Portfolio</p>
       </div>
       <div className={style.portrait}>
-        <Image priority src={portrait} alt="portait" placeholder="blur" />
+        <Image
+          priority
+          src={portrait}
+          alt='portait'
+          placeholder='blur'
+        />
       </div>
-      <SectionTitle title="Thibault D." fontSize={19} />
+      <SectionTitle
+        title='Thibault D.'
+        fontSize={19}
+      />
     </div>
   );
 };

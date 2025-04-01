@@ -1,4 +1,4 @@
-@use "../../styles/app.scss";
+@use '../../styles/app.scss';
 
 .container {
   @include app.sectionContainer;
@@ -22,9 +22,9 @@
     img {
       max-height: calc(var(--vh, 1vh) * 60);
       width: auto;
-      transform: app.$image-slide-in;
-      transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
-      animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
+      // transform: app.$image-slide-in;
+      // transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
+      // animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
       filter: drop-shadow(6px 23px 12px rgba(0, 0, 0, 0.318));
 
       @include app.largeScreen() {
@@ -40,11 +40,11 @@
       --opacity: 0.99;
       transform: translate3d(0, 0, 0);
     }
-    .portrait {
-      img {
-        --opacity: 0.99;
-        transform: scale(1);
-      }
-    }
+    // .portrait {
+    // img {
+    //   --opacity: 0.99;
+    //   transform: scale(1);
+    // }
+    // }
   }
 }

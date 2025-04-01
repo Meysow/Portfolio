@@ -1,4 +1,4 @@
-@use "../../../../styles/app.scss";
+@use '../../../../styles/app.scss';
 
 .container {
   display: flex;
@@ -76,18 +76,18 @@
           margin-bottom: 2.8rem;
           margin-inline: auto;
         }
-        .climbingPic{
-          height: unset;
-        }
 
         .flexWrapper {
           @include app.largeScreen() {
             display: flex;
             gap: 2.4rem;
 
-            img {
-              margin-bottom: unset;
+            .imageWrapper {
+              position: relative;
+              height: auto;
+
               width: auto;
+              min-width: 27rem;
             }
           }
         }
