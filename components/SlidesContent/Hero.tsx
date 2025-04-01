@@ -34,6 +34,7 @@ const Hero: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           src={portrait}
           alt='portait'
           placeholder='blur'
+          sizes='(min-width: 1800px) 57vw, (min-width: 1200px) 57vw, (min-width: 900px) 75vw, 90vw'
         />
       </div>
       <SectionTitle

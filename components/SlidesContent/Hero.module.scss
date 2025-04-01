@@ -22,6 +22,7 @@
     img {
       max-height: calc(var(--vh, 1vh) * 60);
       width: auto;
+      // Effet supprimer pour maximiser le LCP
       // transform: app.$image-slide-in;
       // transition: all 0.8s cubic-bezier(0.43, 0.18, 0.45, 1);
       // animation: fadeIn 1s cubic-bezier(0.43, 0.18, 0.45, 1);
@@ -40,6 +41,7 @@
       --opacity: 0.99;
       transform: translate3d(0, 0, 0);
     }
+    // Effet supprimer pour maximiser le LCP
     // .portrait {
     // img {
     //   --opacity: 0.99;
