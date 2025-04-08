@@ -1,4 +1,4 @@
-@use "../../styles/app.scss";
+@use '../../styles/app.scss';
 
 .bg_container {
   width: 100vw;
@@ -9,18 +9,5 @@
 
   .bg {
     @include app.bg-grid;
-
-    // color: var(--color-text);
-    // position: absolute;
-    // left: -4%;
-    // top: -4%;
-    // height: 109%;
-    // width: 109%;
-
-    img {
-      height: 100%;
-      width: 100%;
-      filter: contrast(75%) sepia(10%);
-    }
   }
 }
