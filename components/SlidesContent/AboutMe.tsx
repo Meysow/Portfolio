@@ -24,6 +24,7 @@ const AboutMe: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <Button
           className={style.buttonMargin}
           href='/about-me'
+          ariaLabel='Navigate to about me page'
         >
           Discover Me
         </Button>

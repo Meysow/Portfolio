@@ -29,6 +29,7 @@ const Projects: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
         <Button
           className={style.buttonMargin}
           href='/projects'
+          ariaLabel='Navigate to Projects page'
         >
           Learn More
         </Button>

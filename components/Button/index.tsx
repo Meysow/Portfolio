@@ -1,29 +1,40 @@
-import Link from "next/link";
-import styles from "./Button.module.scss";
+import Link from 'next/link';
+import styles from './Button.module.scss';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: string;
-  download?: boolean;
-}
+type CommonProps = {
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+};
 
-const Button = ({
-  className,
-  children,
-  type = "button",
-  href,
-  download,
-  ...props
-}: ButtonProps) => {
-  const buttonContent = (
-    <button className={`${styles.button} ${className}`} {...props}>
-      {children}
-    </button>
-  );
+type AnchorButtonProps = CommonProps &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href: string;
+    download?: boolean;
+    type?: never; // interdit "type" côté lien
+  };
+
+type RealButtonProps = CommonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: undefined;
+    download?: undefined;
+  };
+
+type ButtonProps = AnchorButtonProps | RealButtonProps;
+
+const Button = ({ className = '', children, href, download, ariaLabel, ...props }: ButtonProps) => {
+  const fullClass = `${styles.button} ${className}`.trim();
 
   if (href && download) {
     return (
       <div className={styles.wrapper}>
-        <a className={`${styles.button} ${className}`} href={href} download>
+        <a
+          className={fullClass}
+          href={href}
+          download
+          aria-label={ariaLabel}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
           {children}
         </a>
       </div>
@@ -33,14 +44,29 @@ const Button = ({
   if (href) {
     return (
       <div className={styles.wrapper}>
-        <Link href={href} passHref>
-          {buttonContent}
+        <Link
+          href={href}
+          className={fullClass}
+          aria-label={ariaLabel}
+          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {children}
         </Link>
       </div>
     );
   }
 
-  return <div className={styles.wrapper}>{buttonContent}</div>;
+  return (
+    <div className={styles.wrapper}>
+      <button
+        className={fullClass}
+        aria-label={ariaLabel}
+        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      >
+        {children}
+      </button>
+    </div>
+  );
 };
 
 export default Button;

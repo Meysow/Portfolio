@@ -24,6 +24,7 @@ const ProjectImage = ({ project }: PropTypes) => {
               href={project.demo}
               target='_blank'
               rel='noopener noreferrer'
+              aria-label={`Check demo of the project: ${project.name}`}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -56,6 +57,7 @@ const ProjectImage = ({ project }: PropTypes) => {
               href={project.git}
               target='_blank'
               rel='noopener noreferrer'
+              aria-label={`Check Github repo of ${project.name}`}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'

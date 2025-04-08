@@ -1,7 +1,7 @@
-import Button from "@/components/Button";
-import SkillDisplay from "@/components/SkillDisplay";
-import SectionTitle from "../SectionTitle";
-import style from "./Skills.module.scss";
+import Button from '@/components/Button';
+import SkillDisplay from '@/components/SkillDisplay';
+import SectionTitle from '../SectionTitle';
+import style from './Skills.module.scss';
 
 interface propTypes {
   selectedSection: number;
@@ -10,9 +10,7 @@ interface propTypes {
 
 const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
   const containerStyle =
-    selectedSection === sectionNumber
-      ? `${style.container} ${style.active}`
-      : style.container;
+    selectedSection === sectionNumber ? `${style.container} ${style.active}` : style.container;
 
   return (
     <div className={containerStyle}>
@@ -25,7 +23,8 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
 
         <Button
           className={style.buttonMargin}
-          href="/ThibaultDilmanResume.pdf"
+          href='/ThibaultDilmanResume.pdf'
+          ariaLabel='Download my CV in PDF format'
           download
         >
           Download my C.V.
@@ -36,7 +35,10 @@ const Skills: React.FC<propTypes> = ({ selectedSection, sectionNumber }) => {
           <SkillDisplay />
         </div>
       </div>
-      <SectionTitle title="Skills." fontSize={25} />
+      <SectionTitle
+        title='Skills.'
+        fontSize={25}
+      />
     </div>
   );
 };

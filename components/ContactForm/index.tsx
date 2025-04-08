@@ -97,7 +97,12 @@ const ContactForm: React.FC = () => {
 
       <div className={style.buttonWrapper}>
         {feedback && <span className={style.feedback}>{feedback}</span>}
-        <Button type='submit'>Send</Button>
+        <Button
+          type='submit'
+          ariaLabel='Send me a message'
+        >
+          Send
+        </Button>
       </div>
     </form>
   );
