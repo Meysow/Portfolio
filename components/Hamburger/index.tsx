@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import styles from "./Hamburger.module.scss";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import styles from './Hamburger.module.scss';
 
 const Hamburger = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -11,7 +11,7 @@ const Hamburger = () => {
 
   const pathname = usePathname();
   const isActiveLink = (linkPath: string): string => {
-    return pathname === linkPath ? styles.activeLink : "";
+    return pathname === linkPath ? styles.activeLink : '';
   };
 
   return (
@@ -36,22 +36,25 @@ const Hamburger = () => {
           <span></span>
         </div>
         <Link
-          className={`${styles.link} ${isActiveLink("/")}`}
-          href="/"
+          className={`${styles.link} ${isActiveLink('/')}`}
+          href='/'
+          aria-label='Navigate to the home page'
           onClick={() => setModalOpen((prev) => !prev)}
         >
           Home
         </Link>
         <Link
-          className={`${styles.link} ${isActiveLink("/projects")}`}
-          href="/projects"
+          className={`${styles.link} ${isActiveLink('/projects')}`}
+          href='/projects'
+          aria-label='Navigate to the projets page'
           onClick={() => setModalOpen((prev) => !prev)}
         >
           Projects
         </Link>
         <Link
-          className={`${styles.link} ${isActiveLink("/about-me")}`}
-          href="/about-me"
+          className={`${styles.link} ${isActiveLink('/about-me')}`}
+          href='/about-me'
+          aria-label='Navigate to the about me page'
           onClick={() => setModalOpen((prev) => !prev)}
         >
           About Me

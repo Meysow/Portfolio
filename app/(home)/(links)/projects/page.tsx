@@ -12,18 +12,15 @@ const ProjectsPage = () => {
       <section className={styles.section}>
         <div className={styles.wrapper}>
           <h1 className={styles.title}>Projects.</h1>
-
           <div className={styles.projectsContainer}>
-            {/* Project 1 */}
-
             {projectList.map((project) => (
               <div
                 className={styles.project}
                 key={project.id}
               >
-                <div className={styles.figure}>
+                <figure className={styles.figure}>
                   <ProjectImage project={project} />
-                </div>
+                </figure>
                 <div className={styles.description}>
                   <h3 className={styles.name}>{project.name}</h3>
                   <p className={styles.legend}>{project.blabla}</p>
@@ -42,8 +39,6 @@ const ProjectsPage = () => {
                 </div>
               </div>
             ))}
-
-            {/* Project 3 */}
           </div>
           <div className={styles.buttonWrapper}>
             <Button

@@ -1,4 +1,4 @@
-@use "../../../../styles/app.scss";
+@use '../../../../styles/app.scss';
 
 .container {
   display: flex;
@@ -65,6 +65,7 @@
           .figure {
             border-radius: 0.6rem;
             overflow: hidden;
+            margin: 0;
             @include app.largeScreen() {
               flex-basis: 50%;
             }
