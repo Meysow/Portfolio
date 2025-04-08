@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Button from "@/components/Button";
-import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import style from "./ContactForm.module.scss";
+import Button from '@/components/Button';
+import emailjs from '@emailjs/browser';
+import { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import style from './ContactForm.module.scss';
 
 type FormData = {
   name: string;
@@ -13,7 +13,7 @@ type FormData = {
 };
 
 const ContactForm: React.FC = () => {
-  const [feedback, setFeedback] = useState<String>("");
+  const [feedback, setFeedback] = useState<String>('');
   const form = useRef<HTMLFormElement>(null);
   const {
     register,
@@ -30,12 +30,12 @@ const ContactForm: React.FC = () => {
 
     // Runtime checks here to ensure they're not undefined
     if (!serviceId || !templateId || !publicKey) {
-      console.error("Email service configuration is missing!");
+      console.error('Email service configuration is missing!');
       return;
     }
 
     // Reset feedback
-    setFeedback("");
+    setFeedback('');
 
     emailjs
       .sendForm(serviceId, templateId, form.current!, {
@@ -43,51 +43,61 @@ const ContactForm: React.FC = () => {
       })
       .then(
         () => {
-          console.log("SUCCESS!", data);
-          setFeedback("Your message has been sent!");
+          console.log('SUCCESS!', data);
+          setFeedback('Your message has been sent!');
           reset();
         },
         (error) => {
-          console.log("FAILED...", error.text);
-          setFeedback("Something went wrong...");
+          console.log('FAILED...', error.text);
+          setFeedback('Something went wrong...');
         }
       );
   };
 
   return (
-    <form className={style.form} onSubmit={handleSubmit(sendEmail)} ref={form}>
+    <form
+      className={style.form}
+      onSubmit={handleSubmit(sendEmail)}
+      ref={form}
+    >
       <div className={style.input_data}>
-        <input type="text" {...register("name", { required: true })} required />
+        <input
+          id='name'
+          type='text'
+          {...register('name', { required: true })}
+          required
+        />
         <div className={style.underline} />
-        <label>Name</label>
-        {errors.name && (
-          <span className={style.error}>This field is required</span>
-        )}
+        <label htmlFor='name'>Name</label>
+        {errors.name && <span className={style.error}>This field is required</span>}
       </div>
 
       <div className={style.input_data}>
         <input
-          type="text"
-          {...register("email", { required: true })}
+          id='mail'
+          type='text'
+          {...register('email', { required: true })}
           required
         />
         <div className={style.underline} />
-        <label>Email</label>
-        {errors.email && (
-          <span className={style.error}>This field is required</span>
-        )}
+        <label htmlFor='mail'>Email</label>
+        {errors.email && <span className={style.error}>This field is required</span>}
       </div>
 
       <div className={`${style.input_data} ${style.textarea}`}>
-        <textarea {...register("message", { required: true })} required />
+        <textarea
+          id='message'
+          {...register('message', { required: true })}
+          required
+        />
         <div className={style.underline} />
-        <label>Your Message</label>
+        <label htmlFor='message'>Your Message</label>
         {errors.message && <span className={style.error}>error</span>}
       </div>
 
       <div className={style.buttonWrapper}>
         {feedback && <span className={style.feedback}>{feedback}</span>}
-        <Button type="submit">Send</Button>
+        <Button type='submit'>Send</Button>
       </div>
     </form>
   );
